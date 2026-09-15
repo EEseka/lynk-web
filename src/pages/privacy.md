@@ -15,7 +15,7 @@ updated: 15 September 2026
 
 ## Who we are
 
-Lynk is an app for planning hangouts with friends. In this policy, "Lynk", "we" and "us" mean the team that runs the Lynk app and the website at lynk.com.ng. We decide how your personal data is used, which makes us its controller under Nigeria's Data Protection Act 2023 (the NDPA).
+Lynk is an app for planning hangouts with friends. In this policy, "Lynk", "we" and "us" mean Eseka Emmanuel, an individual based in Nigeria who runs the Lynk app and the website at lynk.com.ng. We decide how your personal data is used, which makes us its controller under Nigeria's Data Protection Act 2023 (the NDPA).
 
 You can reach us about anything in this policy at [support@lynk.com.ng](mailto:support@lynk.com.ng).
 
@@ -145,8 +145,8 @@ Our service providers run their systems outside Nigeria, including in the Europe
 | Request counters used to limit traffic | One hour |
 | Notifications you have read | 90 days |
 | Hangouts nobody else ever joined, without payments | Deleted 30 days after their date |
-| Host bank details | The bank name, account holder name, last four digits and Paystack code are erased once the payout succeeds; the payout reference and date are kept |
-| Payment records | Kept as financial records, as described below |
+| Host bank details | The bank name, account holder name, last four digits and Paystack code are erased once the payout succeeds or the hangout is cancelled; any payout reference and date are kept |
+| Payment records | Six years after the payment, as financial records, then deleted |
 
 ## Deleting your account
 
@@ -165,7 +165,7 @@ You can delete your account in the app, from **Profile**. Deletion happens strai
 **What remains, and why:**
 
 - **Past hangouts** you were part of stay for the people who were there. Your place in them shows as "Deleted user", with your name, username, email and photo removed.
-- **Payment records** (amounts, references and dates) are kept because they are financial records. After deletion they are linked only to an account ID that no longer identifies you by name or email.
+- **Payment records** (amounts, references and dates) are kept for six years because they are financial records. After deletion they are linked only to an account ID that no longer identifies you by name or email.
 - **Notifications other people already received** may still show your name as it was, until they are cleared.
 - Records that **Paystack** and our email provider keep about transactions and emails they processed are governed by their own policies.
 

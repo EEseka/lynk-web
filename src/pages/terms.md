@@ -7,7 +7,7 @@ updated: 15 September 2026
 
 ## Agreeing to these terms
 
-These terms are an agreement between you and Lynk ("Lynk", "we", "us") about your use of the Lynk app and the website at lynk.com.ng. By creating an account, signing in as a guest, or using Lynk in any other way, you agree to them. If you do not agree, please do not use Lynk.
+These terms are an agreement between you and Eseka Emmanuel, an individual based in Nigeria who runs Lynk ("Lynk", "we", "us"), about your use of the Lynk app and the website at lynk.com.ng. By creating an account, signing in as a guest, or using Lynk in any other way, you agree to them. If you do not agree, please do not use Lynk.
 
 Our [Privacy Policy](/privacy) explains how we handle your personal data, and forms part of these terms.
 
