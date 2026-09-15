@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Crown from '@lucide/astro/icons/crown';
+import ParticipantAvatar from './ParticipantAvatar.astro';
+import type { Person } from '../../data/people';
+
+interface Props extends HTMLAttributes<'div'> {
+  person: Person;
+  isHost?: boolean;
+  online?: boolean;
+}
+
+const { person, isHost = false, online = false, class: className, ...rest } = Astro.props;
+---
+
+<div class:list={['app-participant', className]} {...rest}>
+  <ParticipantAvatar person={person} size={44} online={online} />
+  <div class="flex min-w-0 flex-1 flex-col gap-1">
+    <span class="app-participant__name">{person.name}</span>
+    <span class="app-participant__username">@{person.username}</span>
+  </div>
+  {
+    isHost ? (
+      <span class="app-badge app-badge--host">
+        <Crown size={12} /> Host
+      </span>
+    ) : (
+      <span class="app-badge app-badge--paid app-participant__paid">Paid</span>
+    )
+  }
+</div>

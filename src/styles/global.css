@@ -1,0 +1,311 @@
+@import "tailwindcss";
+@import "./app-ui.css";
+
+/* Values and names from the app's Color.kt, Type.kt and Shape.kt. */
+:root {
+  color-scheme: light;
+
+  --primary: #331fc8;
+  --on-primary: #ffffff;
+  --primary-container: #4d41df;
+  --on-primary-container: #d4d0ff;
+  --secondary: #cc246a;
+  --on-secondary: #ffffff;
+  --secondary-container: #ff6584;
+  --on-secondary-container: #6a0024;
+  --tertiary: #7d007c;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #9d229a;
+  --on-tertiary-container: #ffc2f3;
+  --background: #fcf8ff;
+  --on-background: #1b1b24;
+  --surface-variant: #e4e0f4;
+  --on-surface-variant: #464555;
+  --outline: #777587;
+  --outline-variant: #c7c4d8;
+  --inverse-surface: #302f39;
+  --inverse-on-surface: #f3effc;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f6f2ff;
+  --surface-container: #f0ecf9;
+  --surface-container-high: #eae6f3;
+  --surface-container-highest: #e4e1ee;
+  --neutral-surface: #f2f2f7;
+  --success: #1a6b35;
+  --success-container: #2e7d4f;
+  --on-success-container: #b7f5cc;
+  --gold: #e8a400;
+  --on-gold: #3e2e00;
+
+  --link-pink: #ff6584;
+  --link-indigo: #4d41df;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --primary: #c3c0ff;
+    --on-primary: #2000a4;
+    --secondary: #ff8fbe;
+    --on-secondary: #610028;
+    --tertiary: #ffabf3;
+    --on-tertiary: #5b005b;
+    --background: #000000;
+    --on-background: #e4e1ee;
+    --surface-variant: #464555;
+    --on-surface-variant: #c7c4d8;
+    --outline: #918fa1;
+    --outline-variant: #464555;
+    --inverse-surface: #e4e1ee;
+    --inverse-on-surface: #302f39;
+    --surface-container-lowest: #000000;
+    --surface-container-low: #0f0f18;
+    --surface-container: #14141c;
+    --surface-container-high: #1e1d27;
+    --surface-container-highest: #282731;
+    --neutral-surface: #1c1c1e;
+    --success: #7edb97;
+    --gold: #ffc94d;
+  }
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-secondary: var(--secondary);
+  --color-on-secondary: var(--on-secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-tertiary: var(--tertiary);
+  --color-on-tertiary: var(--on-tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-on-tertiary-container: var(--on-tertiary-container);
+  --color-background: var(--background);
+  --color-on-background: var(--on-background);
+  --color-surface-variant: var(--surface-variant);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-inverse-surface: var(--inverse-surface);
+  --color-inverse-on-surface: var(--inverse-on-surface);
+  --color-surface-lowest: var(--surface-container-lowest);
+  --color-surface-low: var(--surface-container-low);
+  --color-surface: var(--surface-container);
+  --color-surface-high: var(--surface-container-high);
+  --color-surface-highest: var(--surface-container-highest);
+  --color-neutral-surface: var(--neutral-surface);
+  --color-success: var(--success);
+  --color-success-container: var(--success-container);
+  --color-on-success-container: var(--on-success-container);
+  --color-gold: var(--gold);
+  --color-on-gold: var(--on-gold);
+  --color-link-pink: var(--link-pink);
+  --color-link-indigo: var(--link-indigo);
+}
+
+@theme {
+  --font-display: "Space Grotesk Variable", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@utility type-headline-small {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+}
+
+@utility type-title-large {
+  font-family: var(--font-sans);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+@utility type-title-medium {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  letter-spacing: 0.15px;
+}
+
+@utility type-title-small {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+}
+
+@utility type-body-medium {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+}
+
+@utility type-body-small {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+}
+
+@utility type-label-large {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+}
+
+@utility type-label-medium {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+@utility type-label-small {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--on-background);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--link-pink) 35%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+  }
+}
+
+/* Hidden states only apply under html.js, so the page is never blank with JavaScript off. */
+@layer components {
+  html.js [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.9s var(--ease-out-soft),
+      transform 0.9s var(--ease-out-soft);
+    transition-delay: calc(var(--reveal-step, 0) * 80ms);
+  }
+
+  html.js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-reveal-delay="1"] { --reveal-step: 1; }
+  [data-reveal-delay="2"] { --reveal-step: 2; }
+  [data-reveal-delay="3"] { --reveal-step: 3; }
+  [data-reveal-delay="4"] { --reveal-step: 4; }
+  [data-reveal-delay="5"] { --reveal-step: 5; }
+
+  [data-timeline] {
+    transition: opacity 450ms ease;
+  }
+
+  [data-timeline].is-resetting {
+    opacity: 0;
+  }
+
+  [data-timeline].is-resetting * {
+    transition: none !important;
+  }
+
+  /*
+   * The hidden sizer digit gives the odometer the text's own height and baseline. clip-path crops the
+   * rolling column without changing that baseline, which overflow: hidden would.
+   */
+  .odometer {
+    position: relative;
+    display: inline-block;
+    clip-path: inset(0);
+  }
+
+  .odometer__sizer {
+    visibility: hidden;
+  }
+
+  .odometer__digits {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.6s var(--ease-out-soft);
+  }
+
+  .text-brand-gradient {
+    background-image: linear-gradient(100deg, var(--link-indigo) 0%, #8b3fd9 45%, var(--link-pink) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .text-brand-gradient {
+      background-image: linear-gradient(100deg, #a9a3ff 0%, #d38bff 45%, var(--link-pink) 100%);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

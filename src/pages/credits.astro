@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { TRENDING_SPOTS } from '../data/spots';
+
+const licenseUrls: Record<string, string> = {
+  'CC BY-SA 4.0': 'https://creativecommons.org/licenses/by-sa/4.0/'
+};
+
+const fileUrl = (file: string) => `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file.replaceAll(' ', '_'))}`;
+---
+
+<BaseLayout title="Photo credits · Lynk" description="Credits for the photos of Lagos spots used on the Lynk website.">
+  <section class="mx-auto max-w-3xl px-4 pt-32 pb-24 sm:px-8 sm:pt-40">
+    <p class="font-mono text-xs tracking-wider text-primary uppercase">Credits</p>
+    <h1 class="mt-4 font-display text-5xl leading-tight font-bold tracking-tight">Photo credits</h1>
+    <p class="mt-4 text-lg leading-relaxed text-on-surface-variant">
+      The spot photos on this site come from Wikimedia Commons. They have been resized and cropped, and
+      each one is shared under the licence named below.
+    </p>
+
+    <ul class="mt-12 flex flex-col gap-3">
+      {
+        TRENDING_SPOTS.map((spot) => (
+          <li class="app-card-outlined flex flex-col gap-1 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+            <span class="type-title-small">{spot.name}</span>
+            <span class="type-body-medium text-on-surface-variant">
+              <a href={fileUrl(spot.credit.file)} class="underline underline-offset-2 hover:text-on-background">
+                Photo
+              </a>{' '}
+              by {spot.credit.author},{' '}
+              <a href={licenseUrls[spot.credit.license]} class="underline underline-offset-2 hover:text-on-background">
+                {spot.credit.license}
+              </a>
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

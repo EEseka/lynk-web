@@ -1,0 +1,60 @@
+---
+import Check from '@lucide/astro/icons/check';
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  body: string;
+  points: string[];
+  accent: 'primary' | 'secondary' | 'tertiary';
+  reverse?: boolean;
+}
+
+const { eyebrow, title, body, points, accent, reverse = false } = Astro.props;
+---
+
+<div
+  class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20"
+  style={`--accent: var(--${accent}); --accent-container: var(--${accent}-container); --on-accent-container: var(--on-${accent}-container)`}
+>
+  <div class:list={['flex min-w-0 flex-col items-start', { 'lg:order-2': reverse }]}>
+    <p data-reveal class="eyebrow mb-4 inline-flex items-center gap-2 font-mono text-xs tracking-wider uppercase">
+      <slot name="icon" />
+      {eyebrow}
+    </p>
+    <h3 data-reveal data-reveal-delay="1" class="font-display text-4xl leading-tight font-bold tracking-tight sm:text-5xl">
+      {title}
+    </h3>
+    <p data-reveal data-reveal-delay="2" class="mt-5 max-w-lg text-lg leading-relaxed text-on-surface-variant">
+      {body}
+    </p>
+    <ul class="mt-8 flex flex-col gap-3">
+      {
+        points.map((point, index) => (
+          <li data-reveal data-reveal-delay={String(3 + Math.min(index, 2))} class="flex items-start gap-3">
+            <span class="check mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full">
+              <Check size={12} />
+            </span>
+            <span>{point}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <slot name="note" />
+  </div>
+
+  <div data-reveal data-reveal-delay="2" class:list={['flex min-w-0 justify-center', { 'lg:order-1': reverse }]}>
+    <slot name="demo" />
+  </div>
+</div>
+
+<style>
+  .eyebrow {
+    color: var(--accent);
+  }
+
+  .check {
+    background: var(--accent-container);
+    color: var(--on-accent-container);
+  }
+</style>

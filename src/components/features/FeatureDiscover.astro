@@ -1,0 +1,101 @@
+---
+import MapIcon from '@lucide/astro/icons/map';
+
+import DiscoverCard from '../app/DiscoverCard.astro';
+import { TRENDING_SPOTS } from '../../data/spots';
+
+const rows = [
+  { spots: TRENDING_SPOTS.slice(0, 5), direction: 'left' },
+  { spots: TRENDING_SPOTS.slice(5), direction: 'right' }
+];
+---
+
+<section class="overflow-hidden py-24 sm:py-32">
+  <div class="mx-auto max-w-3xl px-4 text-center sm:px-8">
+    <p data-reveal class="inline-flex items-center gap-2 font-mono text-xs tracking-wider text-gold uppercase">
+      <MapIcon size={16} /> Find the perfect spot
+    </p>
+    <h3 data-reveal data-reveal-delay="1" class="mt-4 font-display text-4xl leading-tight font-bold tracking-tight sm:text-5xl">
+      See what is trending near you
+    </h3>
+    <p data-reveal data-reveal-delay="2" class="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-on-surface-variant">
+      Beaches, galleries, restaurants and parks around you. Save the places worth going back to, and
+      bring them into your next hangout.
+    </p>
+  </div>
+
+  <div data-reveal data-reveal-delay="3" class="marquee mt-14 flex flex-col gap-5" aria-hidden="true">
+    {
+      rows.map((row) => (
+        <div class="marquee-row">
+          <div class:list={['marquee-track', row.direction === 'right' && 'marquee-track--right']}>
+            {[0, 1].map(() =>
+              row.spots.map((spot) => (
+                <div class="spot">
+                  <DiscoverCard spot={spot} />
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <p class="mx-auto mt-8 max-w-3xl px-4 text-center text-xs text-outline sm:px-8">
+    Distances here are examples. In the app they are measured from where you are.
+    Photos from Wikimedia Commons, shared under Creative Commons licences.{' '}
+    <a href="/credits" class="underline underline-offset-2 hover:text-on-surface-variant">See credits</a>
+  </p>
+</section>
+
+<style>
+  .marquee {
+    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  }
+
+  .marquee-row {
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* The cards are rendered twice, so sliding -50% loops without a jump. */
+  .marquee-track {
+    display: flex;
+    flex-shrink: 0;
+    gap: 16px;
+    padding-right: 16px;
+    animation: slide 52s linear infinite;
+  }
+
+  .marquee-track--right {
+    animation-direction: reverse;
+    animation-duration: 60s;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes slide {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .spot {
+    width: 240px;
+    flex-shrink: 0;
+    transition: transform 0.5s var(--ease-out-soft);
+  }
+
+  .spot:hover {
+    transform: translateY(-6px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-row {
+      overflow-x: auto;
+    }
+  }
+</style>

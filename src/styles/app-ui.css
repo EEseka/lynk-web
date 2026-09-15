@@ -1,0 +1,449 @@
+/* Copies of the app's Compose components, used by the phone mockups. */
+@layer components {
+  .app-screen {
+    background: var(--background);
+    color: var(--on-background);
+    font-family: var(--font-sans);
+  }
+
+  /* ParticipantAvatar */
+  .app-avatar {
+    --size: 40px;
+    position: relative;
+    display: inline-flex;
+    flex-shrink: 0;
+    width: var(--size);
+    height: var(--size);
+  }
+
+  .app-avatar__bubble {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--background);
+    border-radius: 9999px;
+    background: var(--surface-variant);
+    color: var(--on-surface-variant);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .app-avatar__online {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: calc(var(--size) * 0.28);
+    height: calc(var(--size) * 0.28);
+    border-radius: 9999px;
+    background: var(--success);
+    box-shadow: 0 0 0 1.5px var(--background);
+  }
+
+  /* ParticipantStack */
+  .app-stack {
+    display: flex;
+    align-items: center;
+  }
+
+  .app-stack > .app-avatar + .app-avatar {
+    margin-left: calc(var(--size) / -3);
+  }
+
+  /* StatusChip */
+  .app-chip {
+    display: inline-flex;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .app-chip--voting {
+    background: var(--tertiary);
+    color: var(--on-tertiary);
+  }
+
+  .app-chip--scheduled {
+    background: var(--secondary);
+    color: var(--on-secondary);
+  }
+
+  /* LynkFlashPill, success type */
+  .app-flash {
+    display: flex;
+    min-height: 48px;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    border: 1px solid color-mix(in srgb, var(--outline-variant) 20%, transparent);
+    border-radius: 9999px;
+    background: var(--success-container);
+    color: var(--on-success-container);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.28);
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+  }
+
+  .app-flash > svg {
+    flex-shrink: 0;
+  }
+
+  /* DetailSection header */
+  .app-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    letter-spacing: 0.15px;
+  }
+
+  .app-section-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    color: var(--tertiary);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+  }
+
+  /* LynkCard OUTLINED */
+  .app-card-outlined {
+    border: 1px solid var(--outline-variant);
+    border-radius: 16px;
+    background: var(--background);
+  }
+
+  /* LynkButton */
+  .app-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    border-radius: 9999px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    letter-spacing: 0.15px;
+    white-space: nowrap;
+  }
+
+  .app-button--primary {
+    background: var(--primary-container);
+    color: var(--on-primary-container);
+  }
+
+  .app-button--secondary {
+    background: var(--neutral-surface);
+    color: var(--on-background);
+  }
+
+  .app-divider {
+    height: 1px;
+    background: var(--outline-variant);
+  }
+
+  /* CandidateCard */
+  .app-candidate {
+    --votes: 0;
+    --ring-width: 1px;
+    --ring-color: var(--outline-variant);
+    --bar: var(--secondary);
+    position: relative;
+    height: var(--candidate-height, 180px);
+    overflow: hidden;
+    border-radius: 16px;
+    background: var(--surface-variant);
+    color: #fff;
+  }
+
+  .app-candidate::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 var(--ring-width) var(--ring-color);
+    transition: box-shadow 0.3s ease;
+    pointer-events: none;
+  }
+
+  .app-candidate__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .app-candidate__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 35%, rgb(0 0 0 / 0.72));
+  }
+
+  .app-candidate__top {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+  }
+
+  .app-candidate__leading,
+  .app-candidate__pick {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 9999px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .app-candidate__leading {
+    background: var(--gold);
+    color: var(--on-gold);
+    opacity: 0;
+    transform: scale(0.8);
+    transition:
+      opacity 0.3s ease,
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .app-candidate__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+  }
+
+  .app-candidate__remove {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: rgb(0 0 0 / 0.5);
+  }
+
+  .app-candidate__votes {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    border-radius: 9999px;
+    background: rgb(0 0 0 / 0.5);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  .app-candidate__check {
+    display: none;
+  }
+
+  .app-candidate__bottom {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .app-candidate__pick {
+    display: none;
+    background: var(--primary);
+    color: var(--on-primary);
+  }
+
+  .app-candidate__name {
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .app-candidate__address {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: rgb(255 255 255 / 0.8);
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+  }
+
+  .app-candidate__bar {
+    width: 100%;
+    height: 4px;
+    overflow: hidden;
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.24);
+  }
+
+  .app-candidate__fill {
+    display: block;
+    width: calc(var(--votes) / var(--total-votes, 1) * 100%);
+    height: 100%;
+    border-radius: 9999px;
+    background: var(--bar);
+    transition:
+      width 0.6s var(--ease-out-soft),
+      background-color 0.3s ease;
+  }
+
+  .app-candidate.is-mine {
+    --ring-width: 2px;
+    --ring-color: var(--primary);
+    --bar: var(--primary);
+  }
+
+  .app-candidate.is-mine .app-candidate__votes {
+    background: var(--primary);
+    color: var(--on-primary);
+  }
+
+  .app-candidate.is-mine .app-candidate__check {
+    display: block;
+  }
+
+  .app-candidate.is-mine .app-candidate__pick {
+    display: inline-flex;
+  }
+
+  .app-candidate.is-leading {
+    --ring-width: 2px;
+    --ring-color: var(--gold);
+    --bar: var(--gold);
+  }
+
+  .app-candidate.is-leading .app-candidate__leading {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ParticipantCard */
+  .app-participant {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .app-participant__name {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+  }
+
+  .app-participant__username {
+    color: var(--on-surface-variant);
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+  }
+
+  .app-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 9999px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .app-badge--host {
+    background: var(--gold);
+    color: var(--on-gold);
+  }
+
+  .app-badge--paid {
+    background: var(--success-container);
+    color: var(--on-success-container);
+  }
+
+  .app-participant__paid {
+    opacity: 0;
+    transform: scale(0.6);
+    transition:
+      opacity 0.3s ease,
+      transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .app-participant.is-paid .app-participant__paid {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* SpotDiscoverCard */
+  .app-discover-card {
+    overflow: hidden;
+    border-radius: 16px;
+    background: var(--surface-container-highest);
+  }
+
+  .app-discover-card__photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: var(--surface-variant);
+  }
+
+  /* LynkBottomSheet */
+  .app-sheet {
+    border-radius: 28px 28px 0 0;
+    background: var(--surface-container-low);
+  }
+
+  .app-sheet__handle {
+    width: 32px;
+    height: 4px;
+    margin: 16px auto;
+    border-radius: 9999px;
+    background: var(--on-surface-variant);
+    opacity: 0.4;
+  }
+
+  .votes-1 { --votes: 1; }
+  .votes-2 { --votes: 2; }
+  .votes-3 { --votes: 3; }
+  .total-1 { --total-votes: 1; }
+  .total-2 { --total-votes: 2; }
+  .total-3 { --total-votes: 3; }
+  .total-4 { --total-votes: 4; }
+  .rank-1 { --rank: 1; }
+  .rank-2 { --rank: 2; }
+}

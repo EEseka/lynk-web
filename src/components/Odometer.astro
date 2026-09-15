@@ -1,0 +1,19 @@
+---
+// A number that rolls up to its new value. `index` is a CSS expression for which digit shows,
+// counted from `from`, e.g. "var(--votes)".
+interface Props {
+  from: number;
+  to: number;
+  index: string;
+}
+
+const { from, to, index } = Astro.props;
+const digits = Array.from({ length: to - from + 1 }, (_, i) => from + i);
+---
+
+<span class="odometer">
+  <span class="odometer__sizer">{to}</span>
+  <span class="odometer__digits" style={`transform: translateY(calc(${index} * -100% / ${digits.length}))`}>
+    {digits.map((digit) => <span>{digit}</span>)}
+  </span>
+</span>

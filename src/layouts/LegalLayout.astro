@@ -1,0 +1,285 @@
+---
+import type { MarkdownLayoutProps } from 'astro';
+import BaseLayout from './BaseLayout.astro';
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  description: string;
+  updated: string;
+}>;
+
+const { frontmatter, headings } = Astro.props;
+const sections = headings.filter((heading) => heading.depth === 2);
+---
+
+<BaseLayout title={`${frontmatter.title} · Lynk`} description={frontmatter.description}>
+  <div class="relative isolate overflow-x-clip">
+    <div class="legal-glow" aria-hidden="true"></div>
+
+    <div class="mx-auto max-w-6xl px-4 pt-32 pb-24 sm:px-8 sm:pt-40">
+      <header class="max-w-3xl">
+        <p data-reveal class="font-mono text-xs tracking-wider text-primary uppercase">Legal</p>
+        <h1 data-reveal data-reveal-delay="1" class="mt-4 font-display text-5xl leading-tight font-bold tracking-tight sm:text-6xl">
+          {frontmatter.title}
+        </h1>
+        <p data-reveal data-reveal-delay="2" class="mt-4 text-on-surface-variant">
+          Last updated {frontmatter.updated}
+        </p>
+      </header>
+
+      <div class="mt-16 grid grid-cols-[minmax(0,1fr)] gap-16 lg:grid-cols-[220px_minmax(0,1fr)]">
+        <nav aria-label="On this page" class="hidden lg:block">
+          <div class="sticky top-28">
+            <p class="font-mono text-xs tracking-wider text-outline uppercase">On this page</p>
+            <ol class="toc mt-4 flex flex-col gap-1 border-l border-outline-variant/70">
+              {
+                sections.map((section) => (
+                  <li>
+                    <a href={`#${section.slug}`} data-toc-link={section.slug}>
+                      {section.text}
+                    </a>
+                  </li>
+                ))
+              }
+            </ol>
+          </div>
+        </nav>
+
+        <article class="legal max-w-3xl">
+          <slot />
+        </article>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-glow {
+    position: absolute;
+    inset: -200px -200px auto auto;
+    z-index: -1;
+    width: 720px;
+    height: 720px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, var(--primary-container), transparent 65%);
+    opacity: 0.18;
+  }
+
+  .toc a {
+    display: block;
+    margin-left: -1px;
+    border-left: 2px solid transparent;
+    padding: 6px 0 6px 14px;
+    font-size: 14px;
+    line-height: 1.35;
+    color: var(--on-surface-variant);
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .toc a:hover {
+    color: var(--on-background);
+  }
+
+  /* Colour only: a bolder weight would rewrap long entries and shake the list. */
+  .toc a[aria-current='true'] {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .legal :global(h2) {
+    scroll-margin-top: 96px;
+    margin: 64px 0 16px;
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .legal :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .legal :global(h3) {
+    scroll-margin-top: 96px;
+    margin: 36px 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .legal :global(p),
+  .legal :global(li) {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--on-background);
+  }
+
+  .legal :global(p) {
+    margin: 12px 0;
+  }
+
+  .legal :global(ul),
+  .legal :global(ol) {
+    margin: 12px 0;
+    padding-left: 22px;
+  }
+
+  .legal :global(ul) {
+    list-style: disc;
+  }
+
+  .legal :global(ol) {
+    list-style: decimal;
+  }
+
+  .legal :global(li) {
+    margin: 6px 0;
+    padding-left: 4px;
+  }
+
+  .legal :global(li::marker) {
+    color: var(--primary);
+  }
+
+  .legal :global(strong) {
+    font-weight: 700;
+    color: var(--on-background);
+  }
+
+  .legal :global(a) {
+    color: var(--primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  .legal :global(blockquote) {
+    margin: 24px 0;
+    border: 1px solid var(--outline-variant);
+    border-radius: 16px;
+    background: var(--background);
+    padding: 8px 20px;
+  }
+
+  .legal :global(table) {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+
+  .legal :global(th),
+  .legal :global(td) {
+    border-bottom: 1px solid var(--outline-variant);
+    padding: 12px 16px 12px 0;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+  }
+
+  .legal :global(th) {
+    font-weight: 700;
+  }
+
+  /* On phones each table row becomes a stacked card, labelled with its column names. */
+  @media (max-width: 640px) {
+    .legal :global(thead) {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+
+    .legal :global(tr) {
+      display: block;
+      margin-bottom: 12px;
+      border: 1px solid var(--outline-variant);
+      border-radius: 16px;
+      padding: 12px 16px;
+    }
+
+    .legal :global(td) {
+      display: block;
+      border: 0;
+      padding: 4px 0;
+    }
+
+    .legal :global(td:first-child) {
+      font-weight: 700;
+    }
+
+    .legal :global(td[data-label])::before {
+      content: attr(data-label);
+      display: block;
+      color: var(--on-surface-variant);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+    }
+  }
+
+  .legal :global(hr) {
+    margin: 48px 0;
+    border-color: var(--outline-variant);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.legal table').forEach((table) => {
+    const labels = [...table.querySelectorAll('thead th')].map((th) => th.textContent ?? '');
+    table.querySelectorAll('tbody tr').forEach((row) => {
+      row.querySelectorAll('td').forEach((cell, index) => cell.setAttribute('data-label', labels[index] ?? ''));
+    });
+  });
+
+  const links = new Map<string, HTMLAnchorElement>();
+  document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]').forEach((link) => {
+    links.set(link.dataset.tocLink ?? '', link);
+  });
+
+  const headings = [...document.querySelectorAll<HTMLElement>('.legal h2[id]')];
+
+  // The last sections are too short to scroll to the top, so a clicked entry stays highlighted
+  // until the reader scrolls by hand.
+  let chosenId: string | null = decodeURIComponent(location.hash.slice(1)) || null;
+
+  const highlight = (id: string | undefined) => {
+    links.forEach((link, linkId) => link.setAttribute('aria-current', String(linkId === id)));
+  };
+
+  const markCurrent = () => {
+    if (chosenId) {
+      highlight(chosenId);
+      return;
+    }
+    const atBottom = window.innerHeight + Math.ceil(window.scrollY) >= document.documentElement.scrollHeight - 2;
+    let current = headings[0];
+    for (const heading of headings) {
+      if (heading.getBoundingClientRect().top < 140) current = heading;
+    }
+    if (atBottom) current = headings[headings.length - 1];
+    highlight(current?.id);
+  };
+
+  const releaseChoice = () => {
+    chosenId = null;
+  };
+
+  if (headings.length) {
+    links.forEach((link, id) => {
+      link.addEventListener('click', () => {
+        chosenId = id;
+        highlight(id);
+      });
+    });
+    ['wheel', 'touchmove', 'keydown'].forEach((type) =>
+      window.addEventListener(type, releaseChoice, { passive: true })
+    );
+    markCurrent();
+    document.addEventListener('scroll', markCurrent, { passive: true, capture: true });
+  }
+</script>

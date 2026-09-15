@@ -1,0 +1,328 @@
+---
+import Compass from '@lucide/astro/icons/compass';
+import Crosshair from '@lucide/astro/icons/crosshair';
+import Music from '@lucide/astro/icons/music';
+import Navigation from '@lucide/astro/icons/navigation';
+import ShieldCheck from '@lucide/astro/icons/shield-check';
+import Utensils from '@lucide/astro/icons/utensils';
+
+import FeatureRow from '../FeatureRow.astro';
+import ParticipantAvatar from '../app/ParticipantAvatar.astro';
+import { ADA, EMMA, KEMI, TOLU } from '../../data/people';
+
+const WIDTH = 480;
+const HEIGHT = 360;
+
+const pins = [
+  { person: ADA, x: 84, y: 92 },
+  { person: TOLU, x: 396, y: 70 },
+  { person: KEMI, x: 382, y: 286 },
+  { person: EMMA, x: 108, y: 272 }
+];
+
+const center = {
+  x: pins.reduce((sum, pin) => sum + pin.x, 0) / pins.length,
+  y: pins.reduce((sum, pin) => sum + pin.y, 0) / pins.length
+};
+
+const nearbySpots = [
+  { icon: Utensils, dx: -58, dy: -34, color: 'var(--secondary-container)' },
+  { icon: Compass, dx: 62, dy: -22, color: 'var(--tertiary-container)' },
+  { icon: Music, dx: 20, dy: 56, color: 'var(--primary-container)' }
+];
+
+const left = (x: number) => `${(x / WIDTH) * 100}%`;
+const top = (y: number) => `${(y / HEIGHT) * 100}%`;
+---
+
+<FeatureRow
+  eyebrow="Meet in the middle"
+  title="A spot that is fair to everyone"
+  body="Open a hangout that is still voting and Lynk works out the point between everyone who shared their location. Spots are measured from there, so nobody crosses the whole city while everyone else walks round the corner."
+  points={[
+    'Your location only reaches the group while the hangout is voting',
+    'Distances measured from the group, not just from you',
+    'Rather not share? You can still vote'
+  ]}
+  accent="secondary"
+  reverse
+>
+  <Navigation slot="icon" size={16} />
+
+  <p
+    slot="note"
+    data-reveal
+    data-reveal-delay="5"
+    class="mt-8 flex max-w-lg items-start gap-3 rounded-lg bg-surface-low p-4 text-sm text-on-surface-variant"
+  >
+    <ShieldCheck size={18} class="mt-0.5 shrink-0 text-success" />
+    Your location is only held while voting is open. It is never written to our database, and it
+    is forgotten as soon as voting closes.
+  </p>
+
+  <div slot="demo" class="w-full max-w-lg" aria-hidden="true">
+    <div class="middle-demo map" data-timeline="700,1500,1500,1300,1400,3400">
+      <svg class="absolute inset-0 size-full" viewBox={`0 0 ${WIDTH} ${HEIGHT}`} preserveAspectRatio="none">
+        <path class="river" d="M-10 196 C 80 170, 150 236, 250 214 S 400 150, 490 176 L 490 214 C 400 190, 330 256, 250 252 S 80 208, -10 234 Z" />
+        <rect class="park" x="300" y="112" width="92" height="58" rx="12" />
+        <rect class="park" x="40" y="130" width="70" height="44" rx="12" />
+        <g class="street">
+          <path d="M0 60 H480 M0 300 H480 M60 0 V360 M180 0 V360 M300 0 V360 M420 0 V360" />
+        </g>
+        <g class="road">
+          <path d="M0 130 C 120 120, 200 150, 480 110" />
+          <path d="M240 0 C 230 120, 260 240, 236 360" />
+        </g>
+
+        {
+          pins.map((pin, index) => (
+            <line
+              class="route"
+              style={`--i: ${index}`}
+              x1={pin.x}
+              y1={pin.y}
+              x2={center.x}
+              y2={center.y}
+              pathLength="1"
+            />
+          ))
+        }
+        <circle class="reach" cx={center.x} cy={center.y} r="78" />
+      </svg>
+
+      {
+        pins.map((pin, index) => (
+          <span class="pin" style={`left: ${left(pin.x)}; top: ${top(pin.y)}; --i: ${index}`}>
+            <span class="pin-head">
+              <ParticipantAvatar person={pin.person} size={32} />
+            </span>
+          </span>
+        ))
+      }
+
+      {
+        nearbySpots.map((spot, index) => (
+          <span
+            class="nearby"
+            style={`left: ${left(center.x + spot.dx)}; top: ${top(center.y + spot.dy)}; --i: ${index}; --spot: ${spot.color}`}
+          >
+            <spot.icon size={14} />
+          </span>
+        ))
+      }
+
+      <span class="center" style={`left: ${left(center.x)}; top: ${top(center.y)}`}>
+        <span class="center-ring"></span>
+        <span class="center-dot">
+          <Crosshair size={16} />
+        </span>
+      </span>
+
+      <span class="caption">
+        <span class="font-bold">Group center</span>
+        <span class="text-on-surface-variant">Trending spots within 5 km</span>
+      </span>
+    </div>
+  </div>
+</FeatureRow>
+
+<style>
+  .map {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 24px;
+    border: 1px solid color-mix(in oklab, var(--outline-variant) 60%, transparent);
+    background: var(--surface-container-low);
+    box-shadow: 0 40px 80px -40px rgb(204 36 106 / 0.35);
+  }
+
+  .river {
+    fill: color-mix(in oklab, var(--link-indigo) 16%, transparent);
+  }
+
+  .park {
+    fill: color-mix(in oklab, var(--success) 14%, transparent);
+  }
+
+  .street path {
+    fill: none;
+    stroke: color-mix(in oklab, var(--outline-variant) 55%, transparent);
+    stroke-width: 1.5;
+  }
+
+  .road path {
+    fill: none;
+    stroke: var(--surface-container-highest);
+    stroke-width: 9;
+    stroke-linecap: round;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .road path {
+      stroke: var(--surface-container-high);
+    }
+  }
+
+  /* Not the translate property: the CSS minifier drops it when the rule also sets transform. */
+  .pin {
+    position: absolute;
+    opacity: 0;
+    transform: translate(-50%, -100%) translateY(-40px);
+    transition:
+      opacity 0.3s ease calc(var(--i) * 180ms),
+      transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--i) * 180ms);
+  }
+
+  .pin-head {
+    position: relative;
+    display: flex;
+    padding: 3px;
+    border-radius: 9999px 9999px 9999px 4px;
+    rotate: -45deg;
+    background: var(--surface-container-lowest);
+    box-shadow: 0 8px 16px -6px rgb(0 0 0 / 0.35);
+  }
+
+  .pin-head > :global(*) {
+    rotate: 45deg;
+  }
+
+  .middle-demo.step-1 .pin {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+
+  .route {
+    stroke: var(--secondary);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 1 1;
+    stroke-dashoffset: 1;
+    opacity: 0.8;
+    transition: stroke-dashoffset 1s var(--ease-out-soft) calc(var(--i) * 120ms);
+  }
+
+  .middle-demo.step-2 .route {
+    stroke-dashoffset: 0;
+  }
+
+  .center {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+    transition:
+      opacity 0.3s ease,
+      transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .center-dot {
+    grid-area: 1 / 1;
+    display: flex;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: var(--secondary-container);
+    color: #fff;
+    box-shadow: 0 0 0 4px var(--surface-container-lowest), 0 10px 24px -8px rgb(204 36 106 / 0.7);
+  }
+
+  .center-ring {
+    grid-area: 1 / 1;
+    width: 36px;
+    height: 36px;
+    border-radius: 9999px;
+    background: color-mix(in oklab, var(--link-pink) 45%, transparent);
+    animation: pulse 2s ease-out infinite;
+  }
+
+  @keyframes pulse {
+    to {
+      transform: scale(3.2);
+      opacity: 0;
+    }
+  }
+
+  .middle-demo.step-3 .center {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  .middle-demo.step-3 .route {
+    opacity: 0.35;
+    transition: opacity 0.6s ease;
+  }
+
+  .reach {
+    fill: color-mix(in oklab, var(--link-pink) 8%, transparent);
+    stroke: color-mix(in oklab, var(--link-pink) 50%, transparent);
+    stroke-width: 1.5;
+    stroke-dasharray: 5 6;
+    transform-box: fill-box;
+    transform-origin: center;
+    opacity: 0;
+    transform: scale(0.4);
+    transition:
+      opacity 0.5s ease,
+      transform 0.9s var(--ease-out-soft);
+  }
+
+  .middle-demo.step-4 .reach {
+    opacity: 1;
+    transform: none;
+  }
+
+  .nearby {
+    position: absolute;
+    display: flex;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background: var(--spot);
+    color: #fff;
+    box-shadow: 0 0 0 3px var(--surface-container-lowest);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition:
+      opacity 0.3s ease calc(var(--i) * 140ms + 200ms),
+      transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--i) * 140ms + 200ms);
+  }
+
+  .middle-demo.step-4 .nearby {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  .caption {
+    position: absolute;
+    left: 50%;
+    top: 16px;
+    align-items: center;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 14px;
+    border-radius: 14px;
+    background: color-mix(in oklab, var(--surface-container-lowest) 90%, transparent);
+    box-shadow: 0 12px 24px -12px rgb(0 0 0 / 0.3);
+    font-size: 13px;
+    line-height: 1.35;
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transform: translate(-50%, 12px);
+    transition:
+      opacity 0.4s ease,
+      transform 0.6s var(--ease-out-soft);
+  }
+
+  .middle-demo.step-5 .caption {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+</style>

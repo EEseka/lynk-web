@@ -1,0 +1,123 @@
+---
+import { siApple, siGoogleplay } from 'simple-icons';
+import Download from '@lucide/astro/icons/download';
+import { APK_URL, APP_STORE_URL, GOOGLE_PLAY_URL } from '../site';
+
+interface Props {
+  tone?: 'default' | 'onBrand';
+  class?: string;
+}
+
+const { tone = 'default', class: className } = Astro.props;
+
+const stores = [
+  { name: 'App Store', eyebrow: 'Download on the', url: APP_STORE_URL, glyph: siApple.path },
+  { name: 'Google Play', eyebrow: 'Get it on', url: GOOGLE_PLAY_URL, glyph: siGoogleplay.path }
+];
+---
+
+<div class:list={['store-buttons grid w-full gap-3', className]}>
+  <a
+    href={APK_URL}
+    class:list={[
+      'group relative flex h-14 items-center justify-center gap-2.5 overflow-hidden rounded-full px-4 font-semibold transition-all duration-300 ease-out-soft hover:-translate-y-0.5 active:translate-y-0',
+      tone === 'default'
+        ? 'bg-primary-container text-on-primary-container shadow-xl shadow-primary-container/30 hover:shadow-2xl hover:shadow-primary-container/40'
+        : 'bg-white text-[#331FC8] shadow-xl shadow-black/20'
+    ]}
+  >
+    <span class="shine" aria-hidden="true"></span>
+    <span
+      class:list={[
+        'flex size-8 items-center justify-center rounded-full transition-transform duration-500 ease-out-soft group-hover:translate-y-0.5',
+        tone === 'default' ? 'bg-white/15' : 'bg-[#331FC8]/10'
+      ]}
+    >
+      <Download size={18} />
+    </span>
+    <span class="flex flex-col leading-tight">
+      <span class="text-base">Download APK</span>
+      <span class:list={['text-xs font-medium', tone === 'default' ? 'opacity-80' : 'opacity-70']}>For Android · Free</span>
+    </span>
+  </a>
+
+  {
+    stores.map((store) =>
+      store.url ? (
+        <a
+          href={store.url}
+          class:list={[
+            'flex h-14 items-center justify-center gap-2.5 rounded-full px-4 transition-all duration-300 ease-out-soft hover:-translate-y-0.5',
+            tone === 'default' ? 'bg-inverse-surface text-inverse-on-surface' : 'bg-black/80 text-white'
+          ]}
+        >
+          <svg viewBox="0 0 24 24" class="size-6 fill-current" aria-hidden="true">
+            <path d={store.glyph} />
+          </svg>
+          <span class="flex flex-col leading-tight">
+            <span class="text-xs font-medium opacity-80">{store.eyebrow}</span>
+            <span class="text-base font-semibold">{store.name}</span>
+          </span>
+        </a>
+      ) : (
+        <span
+          role="link"
+          aria-disabled="true"
+          aria-label={`${store.name}, coming soon`}
+          class:list={[
+            'flex h-14 cursor-not-allowed items-center justify-center gap-2.5 rounded-full px-4 select-none',
+            tone === 'default'
+              ? 'bg-on-background/10 text-on-surface-variant/60'
+              : 'bg-white/10 text-white/60 ring-1 ring-white/15'
+          ]}
+        >
+          <svg viewBox="0 0 24 24" class="size-6 fill-current" aria-hidden="true">
+            <path d={store.glyph} />
+          </svg>
+          <span class="flex flex-col leading-tight">
+            <span class="font-mono text-[10px] tracking-wider uppercase">Coming soon</span>
+            <span class="text-base font-semibold">{store.name}</span>
+          </span>
+        </span>
+      )
+    )
+  }
+</div>
+
+<style>
+  /* Equal-width columns: one per row on phones, then as many 188px-or-wider columns as fit. */
+  .store-buttons {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  @media (min-width: 640px) {
+    .store-buttons {
+      grid-template-columns: repeat(auto-fit, minmax(188px, 1fr));
+    }
+  }
+
+  .shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.28) 50%, transparent 70%);
+    transform: translateX(-120%);
+    animation: shine 5s var(--ease-out-soft) 2.4s infinite;
+    pointer-events: none;
+  }
+
+  @keyframes shine {
+    0% {
+      transform: translateX(-120%);
+    }
+    28%,
+    100% {
+      transform: translateX(120%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shine {
+      display: none;
+    }
+  }
+</style>

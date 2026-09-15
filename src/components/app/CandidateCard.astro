@@ -1,0 +1,46 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { Image } from 'astro:assets';
+import Check from '@lucide/astro/icons/check';
+import Crown from '@lucide/astro/icons/crown';
+import MapPin from '@lucide/astro/icons/map-pin';
+import Trash from '@lucide/astro/icons/trash';
+import Odometer from '../Odometer.astro';
+import type { Spot } from '../../data/spots';
+
+interface Props extends HTMLAttributes<'div'> {
+  spot: Spot;
+  canRemove?: boolean;
+}
+
+const { spot, canRemove = false, class: className, ...rest } = Astro.props;
+---
+
+<div class:list={['app-candidate', className]} {...rest}>
+  <Image src={spot.photo} alt="" width={720} class="app-candidate__photo" />
+  <span class="app-candidate__scrim"></span>
+
+  <div class="app-candidate__top">
+    <span class="app-candidate__leading"><Crown size={12} /> Leading</span>
+    <span class="app-candidate__actions">
+      {
+        canRemove && (
+          <span class="app-candidate__remove">
+            <Trash size={16} />
+          </span>
+        )
+      }
+      <span class="app-candidate__votes">
+        <Check size={16} class="app-candidate__check" />
+        <Odometer from={0} to={4} index="var(--votes)" />
+      </span>
+    </span>
+  </div>
+
+  <div class="app-candidate__bottom">
+    <span class="app-candidate__pick"><Check size={12} /> Your pick</span>
+    <span class="app-candidate__name">{spot.name}</span>
+    <span class="app-candidate__address"><MapPin size={12} /> {spot.area}</span>
+    <span class="app-candidate__bar"><span class="app-candidate__fill"></span></span>
+  </div>
+</div>

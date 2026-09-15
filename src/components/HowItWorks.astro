@@ -1,0 +1,166 @@
+---
+import CalendarPlus from '@lucide/astro/icons/calendar-plus';
+import Vote from '@lucide/astro/icons/vote';
+import PartyPopper from '@lucide/astro/icons/party-popper';
+
+const steps = [
+  {
+    icon: CalendarPlus,
+    title: 'Create a hangout',
+    body: 'Pick a vibe, a date and a time, then invite your crew by username.'
+  },
+  {
+    icon: Vote,
+    title: 'Vote on a spot',
+    body: 'Everyone proposes and votes in the lobby. The host locks in the winner.'
+  },
+  {
+    icon: PartyPopper,
+    title: 'Split it and show up',
+    body: 'Everyone pays their share before the deadline. All that is left is to turn up.'
+  }
+];
+---
+
+<section id="how-it-works" class="scroll-mt-20 bg-surface-low py-24 sm:py-32">
+  <div class="mx-auto max-w-6xl px-4 sm:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <p data-reveal class="font-mono text-xs tracking-wider text-primary uppercase">How it works</p>
+      <h2 data-reveal data-reveal-delay="1" class="mt-4 font-display text-4xl leading-tight font-bold tracking-tight sm:text-5xl">
+        Three steps from idea to <span class="text-brand-gradient">see you there</span>
+      </h2>
+    </div>
+
+    <div data-reveal class="steps relative mt-16">
+      <span class="line line-across" aria-hidden="true"></span>
+      <span class="line line-down" aria-hidden="true"></span>
+
+      <ol class="relative grid gap-12 md:grid-cols-3 md:gap-8">
+        {
+          steps.map((step, index) => (
+            <li class="step flex gap-5 md:flex-col md:items-center md:text-center" style={`--i: ${index}`}>
+              <span class="bubble">
+                <step.icon size={26} />
+                <span class="number">{String(index + 1).padStart(2, '0')}</span>
+              </span>
+              <span>
+                <span class="block text-xl font-bold">{step.title}</span>
+                <span class="mt-2 block max-w-xs leading-relaxed text-on-surface-variant">{step.body}</span>
+              </span>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>
+
+<style>
+  .line {
+    position: absolute;
+    border-radius: 9999px;
+    background: var(--primary-container);
+    pointer-events: none;
+    transition: transform 1.6s var(--ease-out-soft) 0.3s;
+  }
+
+  .line-across {
+    display: none;
+    top: 39px;
+    left: calc(100% / 6);
+    width: calc(100% * 2 / 3);
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .line-down {
+    top: 40px;
+    bottom: 40px;
+    left: 39px;
+    width: 2px;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  .steps.is-visible .line,
+  :global(html:not(.js)) .line {
+    transform: none;
+  }
+
+  @media (min-width: 768px) {
+    .line-across {
+      display: block;
+    }
+
+    .line-down {
+      display: none;
+    }
+  }
+
+  .bubble {
+    position: relative;
+    display: flex;
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: var(--surface-container-lowest);
+    color: var(--primary);
+    box-shadow: 0 20px 40px -20px rgb(51 31 200 / 0.5);
+    transform: scale(0.6);
+    opacity: 0;
+    transition:
+      transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--i) * 450ms + 0.3s),
+      opacity 0.4s ease calc(var(--i) * 450ms + 0.3s);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .bubble {
+      background: var(--surface-container-high);
+    }
+  }
+
+  .steps.is-visible .bubble {
+    transform: none;
+    opacity: 1;
+  }
+
+  :global(html:not(.js)) .bubble {
+    transform: none;
+    opacity: 1;
+  }
+
+  .number {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    display: flex;
+    height: 24px;
+    min-width: 24px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 6px;
+    border-radius: 9999px;
+    background: var(--primary-container);
+    color: var(--on-primary-container);
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+
+  .step > span:last-child {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.6s ease calc(var(--i) * 450ms + 0.5s),
+      transform 0.8s var(--ease-out-soft) calc(var(--i) * 450ms + 0.5s);
+  }
+
+  .steps.is-visible .step > span:last-child,
+  :global(html:not(.js)) .step > span:last-child {
+    opacity: 1;
+    transform: none;
+  }
+</style>

@@ -1,0 +1,31 @@
+---
+import LynkLogo from './LynkLogo.astro';
+import { SUPPORT_EMAIL } from '../site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-outline-variant bg-surface-low">
+  <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 pt-8 pb-6 sm:px-8 md:flex-row md:items-center md:justify-between">
+    <div class="flex flex-col gap-1">
+      <a href="/" class="flex items-center gap-2" aria-label="Lynk home">
+        <LynkLogo size={24} />
+        <span class="font-display text-lg font-bold tracking-tight">Lynk</span>
+      </a>
+      <p class="text-sm text-on-surface-variant">Stop arguing in the group chat. Just Lynk.</p>
+    </div>
+
+    <nav aria-label="Footer" class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-medium">
+      <a href="/terms" class="text-on-surface-variant transition-colors hover:text-on-background">Terms of Service</a>
+      <a href="/privacy" class="text-on-surface-variant transition-colors hover:text-on-background">Privacy Policy</a>
+      <a href={`mailto:${SUPPORT_EMAIL}`} class="text-on-surface-variant transition-colors hover:text-on-background">
+        {SUPPORT_EMAIL}
+      </a>
+    </nav>
+  </div>
+
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 pb-6 sm:px-8">
+    <p class="font-mono text-xs text-outline">© {year} Lynk</p>
+    <a href="/credits" class="font-mono text-xs text-outline transition-colors hover:text-on-surface-variant">Photo credits</a>
+  </div>
+</footer>

@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets';
+import type { Spot } from '../../data/spots';
+
+interface Props {
+  spot: Spot;
+}
+
+const { spot } = Astro.props;
+---
+
+<div class="app-card-outlined flex items-center gap-3 p-4">
+  <Image src={spot.photo} alt="" width={96} class="size-11 shrink-0 rounded-full object-cover" />
+  <div class="flex min-w-0 flex-col gap-1">
+    <span class="type-title-small">{spot.name}</span>
+    <span class="type-body-small text-on-surface-variant">{spot.area}</span>
+  </div>
+</div>

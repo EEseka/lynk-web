@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Hero from '../components/Hero.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import MoreFeatures from '../components/MoreFeatures.astro';
+import FeatureDiscover from '../components/features/FeatureDiscover.astro';
+import FeatureMiddle from '../components/features/FeatureMiddle.astro';
+import FeatureSplit from '../components/features/FeatureSplit.astro';
+import FeatureVote from '../components/features/FeatureVote.astro';
+---
+
+<BaseLayout
+  title="Lynk: plan hangouts, vote on the spot, split the bill"
+  description="Stop arguing in the group chat. Plan hangouts with your friends, vote on where to go in real time, and split the bill before anyone arrives."
+>
+  <Hero />
+
+  <section id="features" class="scroll-mt-20 pt-16 sm:pt-24">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-8">
+      <p data-reveal class="font-mono text-xs tracking-wider text-primary uppercase">What Lynk does</p>
+      <h2 data-reveal data-reveal-delay="1" class="mt-4 font-display text-4xl leading-tight font-bold tracking-tight sm:text-6xl">
+        From “where are we linking?” to <span class="text-brand-gradient">“see you there”</span>
+      </h2>
+      <p data-reveal data-reveal-delay="2" class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-on-surface-variant">
+        One place to plan it, pick it and pay for it. No more scrolling back through two hundred
+        messages to find out what was decided.
+      </p>
+    </div>
+
+    <div class="mx-auto mt-24 flex max-w-6xl flex-col gap-32 px-4 sm:px-8 lg:gap-40">
+      <FeatureVote />
+      <FeatureMiddle />
+      <FeatureSplit />
+    </div>
+  </section>
+
+  <FeatureDiscover />
+  <HowItWorks />
+  <MoreFeatures />
+  <FinalCta />
+</BaseLayout>
+
+<script>
+  import { startTimelines } from '../scripts/timeline';
+
+  startTimelines();
+</script>

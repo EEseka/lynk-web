@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import MapPin from '@lucide/astro/icons/map-pin';
+import type { Spot } from '../../data/spots';
+
+interface Props {
+  spot: Spot;
+}
+
+const { spot } = Astro.props;
+---
+
+<div class="app-discover-card">
+  <Image src={spot.photo} alt={spot.name} width={560} class="app-discover-card__photo" />
+  <div class="p-3">
+    <p class="type-title-medium truncate">{spot.name}</p>
+    <p class="type-body-small truncate text-on-surface-variant">{spot.category}</p>
+    <p class="mt-2 flex items-center gap-1 text-primary">
+      <MapPin size={16} />
+      <span class="type-label-medium">{spot.distance}</span>
+    </p>
+  </div>
+</div>

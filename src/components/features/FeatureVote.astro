@@ -1,0 +1,163 @@
+---
+import Copy from '@lucide/astro/icons/copy';
+import Plus from '@lucide/astro/icons/plus';
+import Vote from '@lucide/astro/icons/vote';
+
+import FeatureRow from '../FeatureRow.astro';
+import CandidateCard from '../app/CandidateCard.astro';
+import ChosenSpotCard from '../app/ChosenSpotCard.astro';
+import { ELEGUSHI_BEACH, LANDMARK_BEACH, TARKWA_BAY_BEACH } from '../../data/spots';
+---
+
+<FeatureRow
+  eyebrow="Vote in real time"
+  title="End the group chat debate"
+  body="Anyone going can propose a spot. Everyone votes live and watches the leaderboard reorder itself. When the host closes voting, the winner locks in and the whole crew hears about it."
+  points={[
+    'See who is in the lobby right now',
+    'Change your vote any time before voting closes',
+    'A tie? The host picks the winner'
+  ]}
+  accent="tertiary"
+>
+  <Vote slot="icon" size={16} />
+
+  <div slot="demo" class="vote-demo w-full max-w-[400px]" data-timeline="1000,1100,1100,1100,1200,1400,3800" aria-hidden="true">
+    <div class="app-screen app-frame">
+      <div class="collapsible" data-at-0="is-open" data-at-6="">
+        <div>
+          <div class="app-section-header">
+            <span>Vote for a spot</span>
+            <span class="app-section-action"><Plus size={16} /> Propose</span>
+          </div>
+
+          <div class="candidates" data-at-1="total-1" data-at-2="total-2" data-at-3="total-3" data-at-4="total-4">
+            <CandidateCard
+              spot={LANDMARK_BEACH}
+              canRemove
+              class="candidate"
+              data-at-1="rank-1"
+              data-at-2="is-leading is-mine votes-1"
+              data-at-3="is-leading is-mine votes-2"
+              data-at-4="is-leading is-mine votes-3"
+            />
+            <CandidateCard
+              spot={ELEGUSHI_BEACH}
+              canRemove
+              class="candidate"
+              data-at-0="rank-1"
+              data-at-1="is-leading votes-1"
+              data-at-2="rank-1 is-leading votes-1"
+              data-at-3="rank-1 votes-1"
+            />
+            <CandidateCard spot={TARKWA_BAY_BEACH} canRemove class="candidate rank-2" />
+          </div>
+
+          <span class="close-button app-button app-button--secondary">
+            <span class="label-idle">Close voting</span>
+            <span class="label-closing">Closing…</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="collapsible" data-at-6="is-open">
+        <div>
+          <div class="app-section-header">
+            <span>Chosen spot</span>
+            <span class="app-section-action">Get a ride <Copy size={16} /></span>
+          </div>
+          <ChosenSpotCard spot={LANDMARK_BEACH} />
+        </div>
+      </div>
+    </div>
+  </div>
+</FeatureRow>
+
+<style>
+  /* Keeps the space the voting card needs, so the page does not jump when the card shrinks. */
+  .vote-demo {
+    display: flex;
+    min-height: 700px;
+    align-items: center;
+  }
+
+  .app-frame {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--outline-variant);
+    border-radius: 32px;
+    padding: 20px 16px;
+    box-shadow: 0 40px 80px -40px rgb(125 0 124 / 0.45);
+  }
+
+  .collapsible {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+      grid-template-rows 0.8s var(--ease-out-soft),
+      opacity 0.5s ease;
+  }
+
+  .collapsible > div {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .collapsible.is-open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  .candidates {
+    --candidate-height: 168px;
+    position: relative;
+    height: calc(3 * var(--candidate-height) + 2 * 12px);
+  }
+
+  /* The leaderboard re-sorts itself, like animateBounds in the app. */
+  .candidates :global(.candidate) {
+    position: absolute;
+    inset: 0 0 auto;
+    transform: translateY(calc(var(--rank, 0) * (var(--candidate-height) + 12px)));
+    transition:
+      transform 0.7s var(--ease-out-soft),
+      box-shadow 0.3s ease;
+  }
+
+  .close-button {
+    position: relative;
+    display: grid;
+    width: 100%;
+    justify-items: center;
+    margin-top: 20px;
+    transition: transform 0.2s ease;
+  }
+
+  .close-button > span {
+    grid-area: 1 / 1;
+    transition: opacity 0.2s ease;
+  }
+
+  .label-closing {
+    opacity: 0;
+  }
+
+  .vote-demo.step-5 .close-button {
+    animation: press 0.4s ease;
+  }
+
+  .vote-demo.step-5 .label-idle {
+    opacity: 0;
+  }
+
+  .vote-demo.step-5 .label-closing {
+    opacity: 1;
+  }
+
+  @keyframes press {
+    40% {
+      transform: scale(0.94);
+    }
+  }
+</style>

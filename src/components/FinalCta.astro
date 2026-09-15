@@ -1,0 +1,82 @@
+---
+import LynkLogo from './LynkLogo.astro';
+import StoreButtons from './StoreButtons.astro';
+---
+
+<section id="download" class="scroll-mt-20 px-4 py-24 sm:px-8 sm:py-32">
+  <div data-reveal class="cta relative mx-auto max-w-6xl overflow-hidden rounded-[32px] px-6 py-16 text-white sm:px-16 sm:py-24">
+    <span class="orb orb-one" aria-hidden="true"></span>
+    <span class="orb orb-two" aria-hidden="true"></span>
+
+    <div class="relative flex flex-col items-center text-center">
+      <span class="app-icon">
+        <LynkLogo size={64} draw />
+      </span>
+
+      <h2 class="mt-8 max-w-3xl font-display text-4xl leading-tight font-bold tracking-tight sm:text-6xl">
+        Your next <span class="whitespace-nowrap">link-up</span><br class="hidden sm:block" /> starts here
+      </h2>
+      <p class="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
+        Download Lynk for Android today. The App Store and Google Play are on the way.
+      </p>
+
+      <StoreButtons tone="onBrand" class="mt-10 max-w-[656px]" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    background: linear-gradient(125deg, #2000a4 0%, #4d41df 38%, #9d229a 72%, #ff6584 100%);
+    box-shadow: 0 60px 120px -60px rgb(77 65 223 / 0.7);
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 9999px;
+    pointer-events: none;
+  }
+
+  .orb-one {
+    width: 520px;
+    height: 520px;
+    top: -260px;
+    left: -120px;
+    background: radial-gradient(circle, rgb(255 255 255 / 0.22), transparent 65%);
+    animation: orbit-one 16s ease-in-out infinite alternate;
+  }
+
+  .orb-two {
+    width: 460px;
+    height: 460px;
+    right: -140px;
+    bottom: -240px;
+    background: radial-gradient(circle, rgb(255 143 190 / 0.5), transparent 65%);
+    animation: orbit-two 19s ease-in-out infinite alternate;
+  }
+
+  @keyframes orbit-one {
+    to {
+      transform: translate(220px, 120px);
+    }
+  }
+
+  @keyframes orbit-two {
+    to {
+      transform: translate(-260px, -80px);
+    }
+  }
+
+  .app-icon {
+    display: flex;
+    width: 112px;
+    height: 112px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 28px;
+    background: #fcf8ff;
+    box-shadow:
+      0 30px 60px -20px rgb(0 0 0 / 0.45),
+      inset 0 -4px 0 rgb(0 0 0 / 0.06);
+  }
+</style>

@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import type { Person } from '../../data/people';
+
+interface Props extends HTMLAttributes<'span'> {
+  person: Person;
+  size?: number;
+  online?: boolean;
+}
+
+const { person, size = 40, online = false, class: className, style, ...rest } = Astro.props;
+---
+
+<span class:list={['app-avatar', className]} style={`--size: ${size}px; ${style ?? ''}`} title={person.name} {...rest}>
+  <span class="app-avatar__bubble">{person.initials}</span>
+  {online && <span class="app-avatar__online" />}
+</span>
