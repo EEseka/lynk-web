@@ -66,3 +66,8 @@ the `/credits` page.
 The Download APK button links to `https://github.com/EEseka/Lynk/releases/latest/download/lynk.apk`, so each client
 release must attach its APK as `lynk.apk`. The App Store and Google Play buttons show as "Coming soon" until their URLs
 are set in `src/site.ts`.
+
+## License
+
+All rights reserved. The code is public to read, but not licensed for use. The spot photos keep their own Creative
+Commons licences. See [LICENSE](LICENSE).
