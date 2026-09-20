@@ -2,13 +2,13 @@
 layout: ../layouts/LegalLayout.astro
 title: Privacy Policy
 description: What Lynk collects, why, who it is shared with, how long it is kept, and how to delete it.
-updated: 15 September 2026
+updated: 20 September 2026
 ---
 
 ## The short version
 
 > - We collect what it takes to plan a hangout with your friends: your Google email and name, the username and photo you pick, your hangouts, and the payments you make or receive through them.
-> - Your **location is never saved**. It is held in memory while a hangout is voting, to find the point between everyone, and then thrown away.
+> - **We never save your location on our servers.** It is held in memory while a hangout is voting, to find the point between everyone, and then thrown away. Your own phone remembers the last place it found you, so nearby spots still load when it cannot get a fresh reading.
 > - **Card details never reach Lynk.** Payments happen on Paystack's own checkout.
 > - We do not sell your data, show ads, or use tracking or advertising tools.
 > - You can delete your account from the app at any time, once nothing is still in progress.
@@ -80,11 +80,13 @@ We do not collect your phone number or contacts, your card details, a history of
 
 ## Your location
 
-Lynk uses your location in two places. It is never stored with your account.
+Lynk uses your location in two places, and keeps one copy of it on your own phone. It is never stored with your account.
 
 **Finding the middle of a group.** When you open a hangout that is still voting, the app asks for your location (the first time, your phone asks for permission) and sends it to our server over an encrypted connection. The server keeps it in memory only, never in a database, and uses it to work out the average point between everyone who shared. That centre point is sent to everyone in the hangout. Your own location is not sent to them, but if you are the only person who has shared, the centre is your location. Your location is thrown away as soon as voting closes, the hangout ends or is cancelled, or you leave it.
 
 **Finding spots near you.** When you look for spots, the app sends a location to search around (yours, or the group's centre point) to our server, which asks Google Places for nearby places. Any words you search for go to Google Places too. To avoid asking Google the same question twice, we keep the results of a nearby search for up to 15 minutes, filed under an area of roughly one kilometre. That stored copy is not linked to you or your account.
+
+**Remembered on your phone.** Your phone can take a while to work out where it is, and sometimes it cannot. So that the map is not empty while it tries, the app keeps the last position it found in its own storage on your device. It is one position, not a history of where you have been, it is never sent to us or tied to your account, and it goes when you clear the app's data or uninstall it.
 
 If you say no to location, you can still join hangouts and vote.
 
@@ -140,7 +142,8 @@ Our service providers run their systems outside Nigeria, including in the Europe
 | Your account and profile | Until you delete your account |
 | Guest accounts | Deleted automatically 30 days after they are created |
 | Sign-in sessions | 30 days, then removed |
-| Location | Held in memory only, until voting closes, the hangout ends, or you leave it |
+| Location, on our servers | Held in memory only, until voting closes, the hangout ends, or you leave it |
+| Last known location, on your phone | Until you clear the app's data or uninstall it |
 | Nearby search results | Up to 15 minutes, not linked to you |
 | Request counters used to limit traffic | One hour |
 | Notifications you have read | 90 days |
