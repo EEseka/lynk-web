@@ -1,0 +1,2 @@
+# Email buttons link to /hangouts/<id>. With Lynk installed the app opens instead; everyone else lands here.
+/hangouts/* /open/ 200

@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LynkLogo from '../components/LynkLogo.astro';
+import StoreButtons from '../components/StoreButtons.astro';
+---
+
+<BaseLayout title="Open in Lynk" description="This link opens a hangout in the Lynk app.">
+  <section class="flex min-h-dvh flex-col items-center justify-center px-4 py-32 text-center">
+    <span data-reveal>
+      <LynkLogo size={72} draw />
+    </span>
+
+    <h1 class="mt-10 font-display text-4xl font-bold tracking-tight sm:text-5xl">Open this hangout in Lynk</h1>
+    <p class="mt-4 max-w-md text-lg text-on-surface-variant">
+      Hangouts live in the Lynk app. Open this link on the phone where you use Lynk.
+    </p>
+
+    <a
+      id="open-in-app"
+      href="lynk://"
+      hidden
+      class="mt-10 inline-flex h-12 items-center rounded-full bg-primary-container px-6 font-semibold text-on-primary-container transition-transform duration-300 ease-out-soft hover:-translate-y-0.5"
+    >
+      Open in Lynk
+    </a>
+
+    <p class="mt-16 font-mono text-sm text-outline">Don't have Lynk yet?</p>
+    <StoreButtons class="mt-4 max-w-[656px]" />
+  </section>
+</BaseLayout>
+
+<script>
+  // The page is shared by every /hangouts/<id> link, so the id only exists in the address bar.
+  const hangoutId = window.location.pathname.match(/^\/hangouts\/([0-9a-fA-F-]{36})\/?$/)?.[1];
+  const openInApp = document.getElementById('open-in-app');
+
+  if (hangoutId && openInApp instanceof HTMLAnchorElement) {
+    openInApp.href = `lynk://hangout_detail/${hangoutId}`;
+    openInApp.hidden = false;
+  }
+</script>

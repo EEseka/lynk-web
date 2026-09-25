@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.eeseka.lynk",
+      "sha256_cert_fingerprints": [
+        "D0:8A:9D:E7:35:07:50:C1:ED:F2:A9:6C:43:48:99:27:22:70:68:FC:B2:5B:B6:78:00:4E:2C:16:A0:3A:5D:0C",
+        "B8:75:A4:FC:B9:60:84:7E:BC:C3:6B:00:85:17:75:0A:2D:D7:F4:47:B2:F0:C8:E9:01:9C:D6:66:D4:21:02:15"
+      ]
+    }
+  }
+]
