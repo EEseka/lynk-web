@@ -35,14 +35,6 @@ const headlineFirstLine = ['Stop', 'arguing', 'in', 'the', 'group', 'chat.'];
 
   <div class="mx-auto grid max-w-6xl items-center gap-16 px-4 sm:px-8 lg:grid-cols-[1.2fr_0.8fr]">
     <div class="flex min-w-0 flex-col items-start">
-      <p
-        class="hero-in mb-6 inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-lowest/60 px-3 py-1 font-mono text-xs text-on-surface-variant backdrop-blur"
-        style="--delay: 0ms"
-      >
-        <span class="live-dot" aria-hidden="true"></span>
-        Out now on Android
-      </p>
-
       <h1 class="font-display text-[44px] leading-[1.02] font-bold tracking-tight sm:text-6xl lg:text-7xl">
         <span class="sr-only">Stop arguing in the group chat. Just Lynk.</span>
         <span aria-hidden="true">
@@ -318,31 +310,6 @@ const headlineFirstLine = ['Stop', 'arguing', 'in', 'the', 'group', 'chat.'];
       opacity: 0;
       transform: translateY(0.45em);
       filter: blur(8px);
-    }
-  }
-
-  .live-dot {
-    position: relative;
-    width: 8px;
-    height: 8px;
-    border-radius: 9999px;
-    background: var(--success);
-  }
-
-  .live-dot::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: inherit;
-    animation: ping 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-
-  @keyframes ping {
-    75%,
-    100% {
-      transform: scale(2.6);
-      opacity: 0;
     }
   }
 
