@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { ALBUM_PHOTOS } from '../data/album';
 import { TRENDING_SPOTS } from '../data/spots';
 
 const licenseUrls: Record<string, string> = {
@@ -7,9 +8,10 @@ const licenseUrls: Record<string, string> = {
 };
 
 const fileUrl = (file: string) => `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file.replaceAll(' ', '_'))}`;
+const unsplashUrl = (id: string) => `https://unsplash.com/photos/${id}`;
 ---
 
-<BaseLayout title="Photo credits · Lynk" description="Credits for the photos of Lagos spots used on the Lynk website.">
+<BaseLayout title="Photo credits · Lynk" description="Credits for the photos used on the Lynk website.">
   <section class="mx-auto max-w-3xl px-4 pt-32 pb-24 sm:px-8 sm:pt-40">
     <p class="font-mono text-xs tracking-wider text-primary uppercase">Credits</p>
     <h1 class="mt-4 font-display text-5xl leading-tight font-bold tracking-tight">Photo credits</h1>
@@ -31,6 +33,28 @@ const fileUrl = (file: string) => `https://commons.wikimedia.org/wiki/File:${enc
               <a href={licenseUrls[spot.credit.license]} class="underline underline-offset-2 hover:text-on-background">
                 {spot.credit.license}
               </a>
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2 class="mt-16 font-display text-3xl leading-tight font-bold tracking-tight">Album photos</h2>
+    <p class="mt-4 text-lg leading-relaxed text-on-surface-variant">
+      The photos in the album example come from Unsplash. They have been resized and cropped, and each one
+      is shared under the <a href="https://unsplash.com/license" class="underline underline-offset-2 hover:text-on-background">Unsplash License</a>.
+    </p>
+
+    <ul class="mt-8 flex flex-col gap-3">
+      {
+        ALBUM_PHOTOS.map((albumPhoto) => (
+          <li class="app-card-outlined flex flex-col gap-1 p-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+            <span class="type-title-small">{albumPhoto.description}</span>
+            <span class="type-body-medium text-on-surface-variant">
+              <a href={unsplashUrl(albumPhoto.credit.unsplashId)} class="underline underline-offset-2 hover:text-on-background">
+                Photo
+              </a>{' '}
+              by {albumPhoto.credit.author}
             </span>
           </li>
         ))

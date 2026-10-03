@@ -2,12 +2,12 @@
 layout: ../layouts/LegalLayout.astro
 title: Privacy Policy
 description: What Lynk collects, why, who it is shared with, how long it is kept, and how to delete it.
-updated: 20 September 2026
+updated: 3 October 2026
 ---
 
 ## The short version
 
-> - We collect what it takes to plan a hangout with your friends: your Google email and name, the username and photo you pick, your hangouts, and the payments you make or receive through them.
+> - We collect what it takes to plan a hangout with your friends: your Google email and name, the username and photo you pick, your hangouts and the photos you add to their albums, and the payments you make or receive through them.
 > - **We never save your location on our servers.** It is held in memory while a hangout is voting, to find the point between everyone, and then thrown away. Your own phone remembers the last place it found you, so nearby spots still load when it cannot get a fresh reading.
 > - **Card details never reach Lynk.** Payments happen on Paystack's own checkout.
 > - We do not sell your data, show ads, or use tracking or advertising tools.
@@ -40,6 +40,13 @@ This policy covers the Lynk app on Android and iOS, and this website.
 - The spots proposed for a hangout and the spot that was chosen.
 
 Your votes are held in memory while voting is open and are not stored once voting ends.
+
+### Hangout albums
+
+Once a hangout is finished, the people who went can add photos to its album.
+
+- The **photos** you add, which you pick from your phone, and any **caption** you write. We shrink each photo on your phone before it is uploaded, and keep it in two sizes: the photo itself and a small preview.
+- Who added each photo, and when.
 
 ### Saved spots
 
@@ -111,6 +118,10 @@ We do not use your data for advertising, and we do not make automated decisions 
 
 **Profile photos** are stored at a web address that anyone who has the link can open.
 
+**Hangout album photos** are different. They are stored privately and only the people who went to the hangout can see them. The app opens each photo through a link that stops working after an hour. When someone adds photos, the others who went get a notification with that person's name.
+
+Anyone who can see an album can save a photo to their phone or share it with another app. A saved or shared copy is outside Lynk, so removing the photo from Lynk, or deleting your account, cannot reach it.
+
 ## Companies that help us run Lynk
 
 We share data with these service providers only as far as they need it to do their job for us. We do not sell your personal data.
@@ -122,7 +133,7 @@ We share data with these service providers only as far as they need it to do the
 | Google (Firebase Cloud Messaging) | Delivers push notifications | Device token and the notification text |
 | Paystack | Checkout, refunds and payouts | Payer email and amount; host bank account details |
 | MapTiler | Draws the map | Your phone loads map images straight from MapTiler, so it sees your IP address and the area you are looking at |
-| Supabase | Our database and profile photo storage | Everything stored in your account |
+| Supabase | Our database, and storage for profile photos and hangout album photos | Everything stored in your account |
 | Railway | Runs our servers | Everything that passes through the app, and server logs |
 | Redis Cloud | Short-lived cache and request limits | Cached place results, request counters |
 | CloudAMQP | Passes messages between parts of our system | Account and hangout events, such as your email and name when your account is created or deleted |
@@ -148,6 +159,8 @@ Our service providers run their systems outside Nigeria, including in the Europe
 | Request counters used to limit traffic | One hour |
 | Notifications you have read | 90 days |
 | Hangouts nobody else ever joined, without payments | Deleted 30 days after their date |
+| Hangout album photos and captions | Until the person who added a photo, or the hangout's host, removes it, or the person who added it deletes their account |
+| Photo uploads that never finished | Removed after about two hours |
 | Host bank details | The bank name, account holder name, last four digits and Paystack code are erased once the payout succeeds or the hangout is cancelled; any payout reference and date are kept |
 | Payment records | Six years after the payment, as financial records, then deleted |
 
@@ -163,13 +176,14 @@ You can delete your account in the app, from **Profile**. Deletion happens strai
 - have a payment we are still confirming, or
 - are owed a refund that has not reached you yet.
 
-**What is deleted:** your profile, username, email address and profile photo, your sign-in sessions, your saved spots, your notifications and your device tokens. We send one last email to confirm your account is gone.
+**What is deleted:** your profile, username, email address and profile photo, your sign-in sessions, your saved spots, your notifications and your device tokens. The photos you added to hangout albums are deleted too, including photos that show other people. We send one last email to confirm your account is gone.
 
 **What remains, and why:**
 
 - **Past hangouts** you were part of stay for the people who were there. Your place in them shows as "Deleted user", with your name, username, email and photo removed.
 - **Payment records** (amounts, references and dates) are kept for six years because they are financial records. After deletion they are linked only to an account ID that no longer identifies you by name or email.
 - **Notifications other people already received** may still show your name as it was, until they are cleared.
+- **Copies of your album photos** that other people saved to their phones or shared are outside Lynk.
 - Records that **Paystack** and our email provider keep about transactions and emails they processed are governed by their own policies.
 
 ## Your rights

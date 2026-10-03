@@ -2,7 +2,7 @@
 layout: ../layouts/LegalLayout.astro
 title: Terms of Service
 description: The rules for using Lynk, including how bill splitting, refunds and payouts work.
-updated: 15 September 2026
+updated: 3 October 2026
 ---
 
 ## Agreeing to these terms
@@ -34,9 +34,11 @@ Please use good judgement when meeting people, especially anyone you do not know
 
 ## Your content
 
-You own what you put into Lynk, such as hangout names and descriptions, your username and your profile photo. You give us permission to store it, show it to the people it is meant for, and copy or process it as needed to run Lynk. That permission ends when you delete the content or your account, except where others already have it (for example, a hangout you took part in) or we must keep it by law.
+You own what you put into Lynk, such as hangout names and descriptions, your username, your profile photo, and the photos and captions you add to hangout albums. You give us permission to store it, show it to the people it is meant for, and copy or process it as needed to run Lynk. That permission ends when you delete the content or your account, except where others already have it (for example, a hangout you took part in) or we must keep it by law.
 
 Do not post anything you do not have the right to share, or anything that is unlawful, hateful, threatening, sexually explicit or that invades someone's privacy.
+
+**Hangout albums.** Everyone who went to a hangout can see its album, and save or share any photo in it, so think about the people in a photo before you add it. The person who added a photo and the hangout's host can remove it, and we may remove any content that breaks these terms.
 
 ## Using Lynk fairly
 
@@ -82,9 +84,9 @@ If some people have not paid by the deadline, the host decides what happens: rem
 - Once the payout has started, you can no longer cancel the hangout in the app. If plans change after that, settle it with your guests directly.
 - You are responsible for any tax that applies to money you receive.
 
-## Location, notifications and camera
+## Location, notifications, camera and photos
 
-Lynk asks for your location to find spots near you and the point between your group, for notifications to keep you updated, and for your camera to take a profile photo. Each is optional and controlled by your phone's settings. Our [Privacy Policy](/privacy) explains exactly how location is used.
+Lynk asks for your location to find spots near you and the point between your group, for notifications to keep you updated, for your camera to take a profile photo, and for permission to save album photos you choose to keep to your phone. Each is optional and controlled by your phone's settings. Our [Privacy Policy](/privacy) explains exactly how location is used.
 
 ## Downloading the app
 
