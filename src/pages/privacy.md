@@ -2,7 +2,7 @@
 layout: ../layouts/LegalLayout.astro
 title: Privacy Policy
 description: What Lynk collects, why, who it is shared with, how long it is kept, and how to delete it.
-updated: 3 October 2026
+updated: 9 October 2026
 ---
 
 ## The short version
@@ -72,6 +72,10 @@ If you **host** and turn on payments, you give us the bank account the money sho
 - The notifications in your inbox: what happened, which hangout, the name of the person who did it, and any amount involved.
 - A **device token** from Firebase Cloud Messaging and whether your phone is Android or iOS, so we can send you push notifications. You can switch push notifications off in the app or in your phone's settings.
 
+### When you email us
+
+**Contact support** and **Share feedback** in the app's settings open your own email app with a message already started. Under the space where you write, it adds your account ID, the app version, your phone's operating system and its version, and your phone's model, so we can find your account and the problem faster. Nothing is sent until you press send, and you can delete any of it first. Support requests go to support@lynk.com.ng and feedback goes to hello@lynk.com.ng.
+
 ### Technical information
 
 - **Sign-in sessions:** we store a scrambled (hashed) copy of each session key so we can keep you signed in. Sessions last 30 days.
@@ -79,7 +83,7 @@ If you **host** and turn on payments, you give us the bank account the money sho
 
 ### On your phone
 
-The app keeps your sign-in session, your theme choice, whether you have seen the introduction screens, and your push notification setting on your own device.
+The app keeps your sign-in session, your theme and Lights Out choices, whether you have seen the introduction screens, and your push notification and haptics settings on your own device.
 
 ### What we do not collect
 
@@ -109,6 +113,7 @@ The NDPA asks us to name a lawful reason for each use.
 | Send push notifications | Your consent, through your phone's notification permission and the setting in the app |
 | Limit requests, keep logs, prevent abuse and fraud | Our legitimate interest in keeping Lynk secure and working |
 | Send emails about your account and payments | To provide the service (contract) |
+| Answer the support requests and feedback you email us | Our legitimate interest in helping you and improving Lynk |
 
 We do not use your data for advertising, and we do not make automated decisions about you that have legal or similarly significant effects.
 
@@ -120,7 +125,7 @@ We do not use your data for advertising, and we do not make automated decisions 
 
 **Hangout album photos** are different. They are stored privately and only the people who went to the hangout can see them. The app opens each photo through a link that stops working after an hour. When someone adds photos, the others who went get a notification with that person's name.
 
-Anyone who can see an album can save a photo to their phone or share it with another app. A saved or shared copy is outside Lynk, so removing the photo from Lynk, or deleting your account, cannot reach it.
+Anyone who can see an album can save a photo to their phone or share it with another app. A saved or shared copy carries the photo's caption inside the file. That copy is outside Lynk, so removing the photo from Lynk, or deleting your account, cannot reach it.
 
 ## Companies that help us run Lynk
 
@@ -138,7 +143,7 @@ We share data with these service providers only as far as they need it to do the
 | Redis Cloud | Short-lived cache and request limits | Cached place results, request counters |
 | CloudAMQP | Passes messages between parts of our system | Account and hangout events, such as your email and name when your account is created or deleted |
 | Brevo | Sends our emails | Your email address, name and the email's contents |
-| Cloudflare | Runs this website and our domain, and forwards email sent to support@lynk.com.ng | Website visits and emails you send us |
+| Cloudflare | Runs this website and our domain, and forwards email sent to support@lynk.com.ng and hello@lynk.com.ng | Website visits and emails you send us |
 
 We may also share information if the law requires it, to protect someone's safety, or as part of a sale or merger of Lynk, in which case this policy would continue to apply to your data.
 
