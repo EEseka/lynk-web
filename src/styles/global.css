@@ -32,7 +32,7 @@
   --surface-container-highest: #e4e1ee;
   --neutral-surface: #f2f2f7;
   --success: #1a6b35;
-  --success-container: #2e7d4f;
+  --success-container: #1e6b40;
   --on-success-container: #b7f5cc;
   --gold: #e8a400;
   --on-gold: #3e2e00;
@@ -56,7 +56,7 @@
     --on-secondary: #610028;
     --tertiary: #ffabf3;
     --on-tertiary: #5b005b;
-    --background: #000000;
+    --background: #13121b;
     --on-background: #e4e1ee;
     --surface-variant: #464555;
     --on-surface-variant: #c7c4d8;
@@ -64,11 +64,11 @@
     --outline-variant: #464555;
     --inverse-surface: #e4e1ee;
     --inverse-on-surface: #302f39;
-    --surface-container-lowest: #000000;
-    --surface-container-low: #0f0f18;
-    --surface-container: #14141c;
-    --surface-container-high: #1e1d27;
-    --surface-container-highest: #282731;
+    --surface-container-lowest: #0e0d16;
+    --surface-container-low: #1b1b24;
+    --surface-container: #1f1f28;
+    --surface-container-high: #2a2933;
+    --surface-container-highest: #35343e;
     --neutral-surface: #1c1c1e;
     --success: #7edb97;
     --gold: #ffc94d;

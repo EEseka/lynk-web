@@ -10,9 +10,10 @@ import SiteFooter from '../components/SiteFooter.astro';
 interface Props {
   title: string;
   description: string;
+  noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const socialImageUrl = new URL('/og-image.png', Astro.site);
 ---
@@ -25,11 +26,13 @@ const socialImageUrl = new URL('/og-image.png', Astro.site);
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#FCF8FF" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#13121B" media="(prefers-color-scheme: dark)" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Lynk" />

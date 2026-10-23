@@ -28,6 +28,7 @@ fully static site, served by Cloudflare Workers.
 | **Icons**     | Lucide, the same set the app uses                                                    |
 | **Fonts**     | Space Grotesk, Plus Jakarta Sans and JetBrains Mono, self-hosted                     |
 | **Hosting**   | Cloudflare Workers static assets, deployed on every push to `main`                   |
+| **SEO**       | Sitemap from `@astrojs/sitemap`, `robots.txt`, and `noindex` on `/open` and the 404  |
 
 ## Running locally
 

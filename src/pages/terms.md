@@ -9,7 +9,7 @@ updated: 23 October 2026
 
 These terms are an agreement between you and Eseka Emmanuel, an individual based in Nigeria who runs Lynk ("Lynk", "we", "us"), about your use of the Lynk app and the website at lynk.com.ng. By creating an account, signing in as a guest, or using Lynk in any other way, you agree to them. If you do not agree, please do not use Lynk.
 
-Our [Privacy Policy](/privacy) explains how we handle your personal data, and forms part of these terms.
+Our [Privacy Policy](/privacy/) explains how we handle your personal data, and forms part of these terms.
 
 ## Who can use Lynk
 
@@ -37,7 +37,7 @@ Lynk AI suggests places to go, on Discover and inside a hangout while its spot i
 - **Its answers are written by AI and can be wrong.** It can misread a place's details or describe it badly. Treat its suggestions as ideas, and check anything that matters, such as prices, opening hours or access, before you go.
 - **The places it shows as cards come from Google**, so what is said above about places applies to them too.
 - **There is a daily limit** on how many messages you can send. The app shows how many you have left and when the limit resets. We may change the limit.
-- **Your questions are sent to Anthropic**, the company whose AI writes the answers. Our [Privacy Policy](/privacy#lynk-ai) explains what is sent and kept. Please do not put personal details about yourself or anyone else in your questions.
+- **Your questions are sent to Anthropic**, the company whose AI writes the answers. Our [Privacy Policy](/privacy/#lynk-ai) explains what is sent and kept. Please do not put personal details about yourself or anyone else in your questions.
 
 We may switch Lynk AI off, change it, or stop offering it at any time.
 
@@ -98,7 +98,7 @@ If some people have not paid by the deadline, the host decides what happens: rem
 
 ## Location, notifications, camera and photos
 
-Lynk asks for your location to find spots near you and the point between your group, for notifications to keep you updated, for your camera to take a profile photo, and for permission to save album photos you choose to keep to your phone. Each is optional and controlled by your phone's settings. Our [Privacy Policy](/privacy) explains exactly how location is used.
+Lynk asks for your location to find spots near you and the point between your group, for notifications to keep you updated, for your camera to take a profile photo, and for permission to save album photos you choose to keep to your phone. Each is optional and controlled by your phone's settings. Our [Privacy Policy](/privacy/) explains exactly how location is used.
 
 ## Downloading the app
 
@@ -110,7 +110,7 @@ Lynk relies on other companies, including Google for sign-in, places and notific
 
 ## Ending your use of Lynk
 
-- **You** can stop using Lynk and delete your account in the app at any time, once nothing is still in progress. The [Privacy Policy](/privacy#deleting-your-account) lists what has to be finished first and what happens to your data.
+- **You** can stop using Lynk and delete your account in the app at any time, once nothing is still in progress. The [Privacy Policy](/privacy/#deleting-your-account) lists what has to be finished first and what happens to your data.
 - **We** may suspend or close your account if you break these terms, if you put other people or Lynk at risk, or if the law requires it. Where it is reasonable, we will tell you first and give you the chance to put things right. Money owed to or by other users through a hangout will still be settled or refunded as described above.
 
 ## Changes to Lynk and to these terms
