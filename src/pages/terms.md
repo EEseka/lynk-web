@@ -2,7 +2,7 @@
 layout: ../layouts/LegalLayout.astro
 title: Terms of Service
 description: The rules for using Lynk, including how bill splitting, refunds and payouts work.
-updated: 3 October 2026
+updated: 23 October 2026
 ---
 
 ## Agreeing to these terms
@@ -24,11 +24,22 @@ You must be at least 18 years old to use Lynk. By using it, you confirm that you
 
 ## What Lynk does, and what it does not
 
-Lynk helps you and your friends plan a hangout: invite people, suggest and vote on a spot, and split the cost.
+Lynk helps you and your friends plan a hangout: find ideas, invite people, suggest and vote on a spot, and split the cost.
 
 **Lynk is not the organiser of your hangout, and is not a party to it.** The host and the people who go are responsible for the hangout itself: turning up, how everyone behaves, and any arrangement with the venue. We are not responsible for what happens at a hangout.
 
-**Places come from Google.** Names, addresses, photos, ratings, prices and opening hours are provided by Google Places and may be out of date or wrong. Check before you go. Lynk has no connection with the places shown and does not recommend or vouch for them.
+**Places come from Google.** Names, addresses, photos, ratings, prices and opening hours are provided by Google Places and may be out of date or wrong. Check before you go. Lynk has no connection with the places shown and does not vouch for them, including the ones Lynk AI suggests.
+
+## Lynk AI
+
+Lynk AI suggests places to go, on Discover and inside a hangout while its spot is being voted on. It is there to help you pick a spot, and it will not help with anything else.
+
+- **Its answers are written by AI and can be wrong.** It can misread a place's details or describe it badly. Treat its suggestions as ideas, and check anything that matters, such as prices, opening hours or access, before you go.
+- **The places it shows as cards come from Google**, so what is said above about places applies to them too.
+- **There is a daily limit** on how many messages you can send. The app shows how many you have left and when the limit resets. We may change the limit.
+- **Your questions are sent to Anthropic**, the company whose AI writes the answers. Our [Privacy Policy](/privacy#lynk-ai) explains what is sent and kept. Please do not put personal details about yourself or anyone else in your questions.
+
+We may switch Lynk AI off, change it, or stop offering it at any time.
 
 Please use good judgement when meeting people, especially anyone you do not know well.
 
@@ -49,6 +60,7 @@ You agree not to:
 - use hangout payments for anything other than sharing the real cost of a hangout, including to move money for any other purpose, or to launder money or commit fraud;
 - create accounts in bulk or by automated means, or collect other users' information;
 - try to get into parts of Lynk you are not meant to access, overload our systems, or get around our limits;
+- try to make Lynk AI do anything other than help you find a place, or to reveal how it works;
 - copy, change, or reverse engineer the app, except where the law allows it.
 
 ## Splitting the bill
@@ -94,7 +106,7 @@ Until Lynk is in the App Store and Google Play, the Android app is offered as an
 
 ## Services from other companies
 
-Lynk relies on other companies, including Google for sign-in, places and notifications, MapTiler for maps, and Paystack for payments. Their services have their own terms, and we are not responsible for their availability or for how they perform.
+Lynk relies on other companies, including Google for sign-in, places and notifications, MapTiler for maps, Paystack for payments, and Anthropic for Lynk AI. Their services have their own terms, and we are not responsible for their availability or for how they perform.
 
 ## Ending your use of Lynk
 
@@ -112,6 +124,7 @@ We work hard to keep Lynk running well, but we provide it "as is". We cannot pro
 As far as the law allows, Lynk is not responsible for:
 
 - anything that happens at or because of a hangout, or at a venue;
+- mistakes in Lynk AI's answers, or a choice you make based on one;
 - losses caused by other users, including a host who does not use collected money as agreed;
 - delays or failures caused by Paystack, banks, Google or other services outside our control;
 - indirect losses, such as lost profits or opportunities.

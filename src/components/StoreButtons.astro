@@ -4,11 +4,10 @@ import Download from '@lucide/astro/icons/download';
 import { APK_URL, APP_STORE_URL, GOOGLE_PLAY_URL } from '../site';
 
 interface Props {
-  tone?: 'default' | 'onBrand';
   class?: string;
 }
 
-const { tone = 'default', class: className } = Astro.props;
+const { class: className } = Astro.props;
 
 const stores = [
   { name: 'App Store', eyebrow: 'Download on the', url: APP_STORE_URL, glyph: siApple.path },
@@ -19,25 +18,17 @@ const stores = [
 <div class:list={['store-buttons grid w-full gap-3', className]}>
   <a
     href={APK_URL}
-    class:list={[
-      'group relative flex h-14 items-center justify-center gap-2.5 overflow-hidden rounded-full px-4 font-semibold transition-all duration-300 ease-out-soft hover:-translate-y-0.5 active:translate-y-0',
-      tone === 'default'
-        ? 'bg-primary-container text-on-primary-container shadow-xl shadow-primary-container/30 hover:shadow-2xl hover:shadow-primary-container/40'
-        : 'bg-white text-[#331FC8] shadow-xl shadow-black/20'
-    ]}
+    class="group relative flex h-14 items-center justify-center gap-2.5 overflow-hidden rounded-full bg-primary-container px-4 font-semibold text-on-primary-container shadow-xl shadow-primary-container/30 transition-all duration-300 ease-out-soft hover:-translate-y-0.5 hover:shadow-2xl hover:shadow-primary-container/40 active:translate-y-0"
   >
     <span class="shine" aria-hidden="true"></span>
     <span
-      class:list={[
-        'flex size-8 items-center justify-center rounded-full transition-transform duration-500 ease-out-soft group-hover:translate-y-0.5',
-        tone === 'default' ? 'bg-white/15' : 'bg-[#331FC8]/10'
-      ]}
+      class="flex size-8 items-center justify-center rounded-full bg-white/15 transition-transform duration-500 ease-out-soft group-hover:translate-y-0.5"
     >
       <Download size={18} />
     </span>
     <span class="flex flex-col leading-tight">
       <span class="text-base">Download APK</span>
-      <span class:list={['text-xs font-medium', tone === 'default' ? 'opacity-80' : 'opacity-70']}>For Android · Free</span>
+      <span class="text-xs font-medium opacity-80">For Android · Free</span>
     </span>
   </a>
 
@@ -46,10 +37,7 @@ const stores = [
       store.url ? (
         <a
           href={store.url}
-          class:list={[
-            'flex h-14 items-center justify-center gap-2.5 rounded-full px-4 transition-all duration-300 ease-out-soft hover:-translate-y-0.5',
-            tone === 'default' ? 'bg-inverse-surface text-inverse-on-surface' : 'bg-black/80 text-white'
-          ]}
+          class="flex h-14 items-center justify-center gap-2.5 rounded-full bg-inverse-surface px-4 text-inverse-on-surface transition-all duration-300 ease-out-soft hover:-translate-y-0.5"
         >
           <svg viewBox="0 0 24 24" class="size-6 fill-current" aria-hidden="true">
             <path d={store.glyph} />
@@ -64,12 +52,7 @@ const stores = [
           role="link"
           aria-disabled="true"
           aria-label={`${store.name}, coming soon`}
-          class:list={[
-            'flex h-14 cursor-not-allowed items-center justify-center gap-2.5 rounded-full px-4 select-none',
-            tone === 'default'
-              ? 'bg-on-background/10 text-on-surface-variant/60'
-              : 'bg-white/10 text-white/60 ring-1 ring-white/15'
-          ]}
+          class="flex h-14 cursor-not-allowed items-center justify-center gap-2.5 rounded-full bg-on-background/10 px-4 text-on-surface-variant/60 select-none"
         >
           <svg viewBox="0 0 24 24" class="size-6 fill-current" aria-hidden="true">
             <path d={store.glyph} />

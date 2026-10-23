@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import MoreFeatures from '../components/MoreFeatures.astro';
 import FeatureAlbum from '../components/features/FeatureAlbum.astro';
+import FeatureAssistant from '../components/features/FeatureAssistant.astro';
 import FeatureDiscover from '../components/features/FeatureDiscover.astro';
 import FeatureMiddle from '../components/features/FeatureMiddle.astro';
 import FeatureSplit from '../components/features/FeatureSplit.astro';
@@ -13,7 +14,7 @@ import FeatureVote from '../components/features/FeatureVote.astro';
 
 <BaseLayout
   title="Lynk: plan hangouts, vote on the spot, split the bill"
-  description="Stop arguing in the group chat. Plan hangouts with your friends, vote on where to go in real time, and split the bill before anyone arrives."
+  description="Stop arguing in the group chat. Plan hangouts with your friends, ask Lynk AI where to go, vote on it in real time, and split the bill before anyone arrives."
 >
   <Hero />
 
@@ -31,6 +32,7 @@ import FeatureVote from '../components/features/FeatureVote.astro';
 
     <div class="mx-auto mt-24 flex max-w-6xl flex-col gap-32 px-4 sm:px-8 lg:gap-40">
       <FeatureVote />
+      <FeatureAssistant />
       <FeatureMiddle />
       <FeatureSplit />
       <FeatureAlbum />

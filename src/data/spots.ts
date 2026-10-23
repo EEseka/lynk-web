@@ -53,6 +53,15 @@ export const TARKWA_BAY_BEACH: Spot = {
   credit: { file: 'Tarkwa Bay Beach Front.jpg', author: 'Liesel81', license: 'CC BY-SA 4.0' }
 };
 
+export const MURI_OKUNOLA_PARK: Spot = {
+  name: 'Muri Okunola Park',
+  category: 'Activity',
+  area: 'Victoria Island',
+  distance: '900 m',
+  photo: muriOkunolaPark,
+  credit: { file: 'Muri Okunola Park 08.jpg', author: 'ReoMartins', license: 'CC BY-SA 4.0' }
+};
+
 export const TRENDING_SPOTS: Spot[] = [
   LANDMARK_BEACH,
   {
@@ -100,14 +109,7 @@ export const TRENDING_SPOTS: Spot[] = [
     photo: freedomPark,
     credit: { file: 'Images of Freedom Park 23.jpg', author: 'ReoMartins', license: 'CC BY-SA 4.0' }
   },
-  {
-    name: 'Muri Okunola Park',
-    category: 'Activity',
-    area: 'Victoria Island',
-    distance: '900 m',
-    photo: muriOkunolaPark,
-    credit: { file: 'Muri Okunola Park 08.jpg', author: 'ReoMartins', license: 'CC BY-SA 4.0' }
-  },
+  MURI_OKUNOLA_PARK,
   TARKWA_BAY_BEACH,
   {
     name: 'Lufasi Nature Park',

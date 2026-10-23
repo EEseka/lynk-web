@@ -36,6 +36,11 @@
   --on-success-container: #b7f5cc;
   --gold: #e8a400;
   --on-gold: #3e2e00;
+  --violet: #7e22ce;
+  --violet-container: #9333ea;
+  --on-violet-container: #ffffff;
+  --lavender-grey: #e8e4f0;
+  --on-lavender-grey: #3b3a49;
 
   --link-pink: #ff6584;
   --link-indigo: #4d41df;
@@ -67,6 +72,9 @@
     --neutral-surface: #1c1c1e;
     --success: #7edb97;
     --gold: #ffc94d;
+    --violet: #c084fc;
+    --lavender-grey: #25242f;
+    --on-lavender-grey: #d8d5e6;
   }
 }
 
@@ -102,6 +110,7 @@
   --color-on-success-container: var(--on-success-container);
   --color-gold: var(--gold);
   --color-on-gold: var(--on-gold);
+  --color-violet: var(--violet);
   --color-link-pink: var(--link-pink);
   --color-link-indigo: var(--link-indigo);
 }

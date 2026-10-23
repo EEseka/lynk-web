@@ -13,7 +13,7 @@ fully static site, served by Cloudflare Workers.
 
 |              |                                                                                                   |
 |--------------|---------------------------------------------------------------------------------------------------|
-| **/**        | Landing page with live demos of voting, the group centre point and bill splitting                 |
+| **/**        | Landing page with live demos of voting, Lynk AI, the group centre point, bill splits and albums   |
 | **/terms**   | Terms of Service, written in Markdown                                                             |
 | **/privacy** | Privacy Policy, written in Markdown and grounded in what the app and API actually store           |
 | **/credits** | Credits for the spot photos, which come from Wikimedia Commons                                    |
@@ -47,7 +47,7 @@ src/
 ├── layouts/        BaseLayout (head, header, footer), LegalLayout (terms and privacy)
 ├── components/     landing page sections
 │   ├── app/        copies of the app's Compose components used in the mockups
-│   └── features/   voting, centre point, bill split and spot demos
+│   └── features/   voting, Lynk AI, centre point, bill split, album and spot demos
 ├── scripts/        timeline.ts, which steps the looping demos
 ├── styles/         global.css (design tokens), app-ui.css (app component styles)
 ├── assets/spots/   spot photos
