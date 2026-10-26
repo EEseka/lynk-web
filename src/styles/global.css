@@ -219,7 +219,7 @@
   }
 
   ::selection {
-    background-color: color-mix(in oklab, var(--link-pink) 35%, transparent);
+    background-color: color-mix(in oklab, var(--primary) 40%, transparent);
   }
 
   :focus-visible {

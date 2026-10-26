@@ -4,7 +4,7 @@ import Wallet from '@lucide/astro/icons/wallet';
 
 import FeatureRow from '../FeatureRow.astro';
 import ParticipantRow from '../app/ParticipantRow.astro';
-import { ADA, EMMA, KEMI, PAY_BY_DATE, TOLU, TOTAL_COST } from '../../data/people';
+import { ADA, EMMA, PAT, PAY_BY_DATE, TOLU, TOTAL_COST } from '../../data/people';
 
 const states = [
   { text: 'Collecting from your guests', at: 0, until: 3 },
@@ -32,7 +32,7 @@ const states = [
     <div class="app-screen app-frame relative pt-20">
       <div class="flash-slot">
         <span class="app-flash" data-at-1="is-shown" data-at-2=""><CircleCheck size={20} /> Tolu has paid</span>
-        <span class="app-flash" data-at-2="is-shown" data-at-3=""><CircleCheck size={20} /> Kemi has paid</span>
+        <span class="app-flash" data-at-2="is-shown" data-at-3=""><CircleCheck size={20} /> Pat has paid</span>
         <span class="app-flash" data-at-3="is-shown" data-at-4=""><CircleCheck size={20} /> Emma has paid</span>
         <span class="app-flash" data-at-5="is-shown"><CircleCheck size={20} /> Your payout is on its way to your bank</span>
       </div>
@@ -46,7 +46,7 @@ const states = [
         <div class="collapsible" data-at-0="is-open" data-at-3="">
           <div>
             <div class="flex items-center justify-between pt-3">
-              <span class="type-body-medium text-on-surface-variant">Pay by</span>
+              <span class="type-body-medium text-on-surface-variant">Pay By</span>
               <span class="type-title-small">{PAY_BY_DATE}</span>
             </div>
           </div>
@@ -71,12 +71,12 @@ const states = [
     <div class="app-screen sheet-frame">
       <div class="app-sheet px-6 pb-6">
         <div class="app-sheet__handle"></div>
-        <p class="type-title-large mb-4">Who's going</p>
+        <p class="type-title-large mb-4">Who's Going</p>
         <p class="type-label-large mb-4 text-on-surface-variant">Going · 4</p>
         <div class="flex flex-col gap-4">
           <ParticipantRow person={ADA} isHost online />
           <ParticipantRow person={TOLU} data-at-1="is-paid" />
-          <ParticipantRow person={KEMI} online data-at-2="is-paid" />
+          <ParticipantRow person={PAT} online data-at-2="is-paid" />
           <ParticipantRow person={EMMA} data-at-3="is-paid" />
         </div>
       </div>

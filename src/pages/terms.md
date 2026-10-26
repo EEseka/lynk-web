@@ -93,7 +93,7 @@ If some people have not paid by the deadline, the host decides what happens: rem
 - You must give a bank account that is yours, or that you are allowed to receive money into, and keep it correct. We check the account with Paystack, but a payout sent to the account you gave counts as paid.
 - The money you receive is your friends' contribution to the hangout. Use it for that.
 - If a payout fails, we will tell you, and you can try again from the app.
-- Once the payout has started, you can no longer cancel the hangout in the app. If plans change after that, settle it with your guests directly.
+- Once the payout has started, you can no longer cancel the hangout in the app. If plans change after that, settle it with your attendees directly.
 - You are responsible for any tax that applies to money you receive.
 
 ## Location, notifications, camera and photos

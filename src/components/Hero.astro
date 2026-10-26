@@ -19,7 +19,7 @@ import StoreButtons from './StoreButtons.astro';
 import CandidateCard from './app/CandidateCard.astro';
 import ChosenSpotCard from './app/ChosenSpotCard.astro';
 import ParticipantAvatar from './app/ParticipantAvatar.astro';
-import { ADA, EMMA, HANGOUT_DATE, HANGOUT_NAME, KEMI, PAY_BY_DATE, SHARE, TOLU } from '../data/people';
+import { ADA, EMMA, HANGOUT_DATE, HANGOUT_NAME, PAT, PAY_BY_DATE, SHARE, TOLU } from '../data/people';
 import { ELEGUSHI_BEACH, LANDMARK_BEACH } from '../data/spots';
 
 const headlineFirstLine = ['Stop', 'arguing', 'in', 'the', 'group', 'chat.'];
@@ -130,11 +130,11 @@ const headlineFirstLine = ['Stop', 'arguing', 'in', 'the', 'group', 'chat.'];
                     <div class="flex items-center justify-between">
                       <span class="app-stack">
                         <ParticipantAvatar person={ADA} online />
-                        <ParticipantAvatar person={KEMI} online />
+                        <ParticipantAvatar person={PAT} online />
                         <ParticipantAvatar person={TOLU} online class="late-joiner" data-at-1="is-in" />
                         <ParticipantAvatar person={EMMA} class="late-joiner" data-at-2="is-in" />
                       </span>
-                      <span class="app-section-action">See all <ChevronRight size={16} /></span>
+                      <span class="app-section-action">See All <ChevronRight size={16} /></span>
                     </div>
                   </div>
 
@@ -142,7 +142,7 @@ const headlineFirstLine = ['Stop', 'arguing', 'in', 'the', 'group', 'chat.'];
                     <div>
                       <div class="pt-5">
                         <div class="app-section-header">
-                          <span>Vote for a spot</span>
+                          <span>Vote for a Spot</span>
                           <span class="app-section-action"><Plus size={16} /> Propose</span>
                         </div>
                         <div class="flex flex-col gap-3" data-at-3="total-3" data-at-4="total-4">
@@ -157,8 +157,8 @@ const headlineFirstLine = ['Stop', 'arguing', 'in', 'the', 'group', 'chat.'];
                     <div>
                       <div class="pt-5">
                         <div class="app-section-header">
-                          <span>Chosen spot</span>
-                          <span class="app-section-action">Get a ride <Copy size={16} /></span>
+                          <span>Chosen Spot</span>
+                          <span class="app-section-action">Get a Ride <Copy size={16} /></span>
                         </div>
                         <ChosenSpotCard spot={LANDMARK_BEACH} />
                       </div>
@@ -171,16 +171,16 @@ const headlineFirstLine = ['Stop', 'arguing', 'in', 'the', 'group', 'chat.'];
                         <div class="app-section-header"><span>Payments</span></div>
                         <div class="app-card-outlined flex flex-col gap-3 p-4">
                           <div class="flex items-center justify-between">
-                            <span class="type-body-medium text-on-surface-variant">Your share</span>
+                            <span class="type-body-medium text-on-surface-variant">Your Share</span>
                             <span class="type-title-small">{SHARE}</span>
                           </div>
                           <div class="flex items-center justify-between">
-                            <span class="type-body-medium text-on-surface-variant">Pay by</span>
+                            <span class="type-body-medium text-on-surface-variant">Pay By</span>
                             <span class="type-title-small">{PAY_BY_DATE}</span>
                           </div>
                           <div class="app-divider"></div>
                           <span class="type-body-small text-on-surface-variant">Waiting for everyone to pay</span>
-                          <span class="app-button app-button--primary">Pay my share</span>
+                          <span class="app-button app-button--primary">Pay My Share</span>
                         </div>
                       </div>
                     </div>
