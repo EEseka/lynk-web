@@ -6,7 +6,7 @@ export interface Person {
 
 export const ADA: Person = { name: 'Ada', username: 'ada_obi', initials: 'AD' };
 export const TOLU: Person = { name: 'Tolu', username: 'toluuu', initials: 'TO' };
-export const PAT: Person = { name: 'Pat', username: 'p_eseka', initials: 'PA' };
+export const PAT: Person = { name: 'Pat', username: 'p_kale', initials: 'PA' };
 export const EMMA: Person = { name: 'Emma', username: 'e_eseka', initials: 'EM' };
 
 export const HANGOUT_NAME = 'Friday Link-Up';
